@@ -757,8 +757,14 @@ function renderTable(data, highlightMode = false) {
                     row.classList.add('has-details');
                 }
                 // Highlight PSA advantages in Tigerpaw migration mode
-                if (highlightMode && feature.revPSA === 'check' && feature.tigerpaw === 'cross') {
-                    row.classList.add('psa-advantage');
+                if (highlightMode) {
+                    if (feature.revPSA === 'check' && feature.tigerpaw === 'cross') {
+                        row.classList.add('psa-exclusive');
+                    } else if (feature.linked) {
+                        row.classList.add('psa-linked');
+                    } else if (feature.status === 'Coming GA') {
+                        row.classList.add('psa-coming');
+                    }
                 }
                 row.innerHTML = `
                     <td>
@@ -1054,13 +1060,16 @@ function setupEventListeners() {
                     renderTable(filtered);
                     break;
                 case 'tigerpaw-advantage':
-                    // Show features where PSA has advantage over Tigerpaw
-                    filtered = features.filter(f => 
-                        (f.revPSA === 'check' && f.tigerpaw === 'cross') || 
-                        (f.status === 'Coming GA' && f.tigerpaw === 'cross')
-                    );
-                    renderTable(filtered, true); // true = highlight mode
+                    // Show ALL features, but highlight where PSA has advantage
+                    renderTable(features, true); // true = highlight mode
                     showTigerpawMigrationValue();
+                    // Scroll to the value section
+                    setTimeout(() => {
+                        const valueSection = document.getElementById('migrationValue');
+                        if (valueSection) {
+                            valueSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
                     break;
                 default:
                     renderTable(features);

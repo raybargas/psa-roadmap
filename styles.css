@@ -743,13 +743,43 @@ body {
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
-.feature-row.psa-advantage {
-    background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.05) 100%);
-    border-left: 4px solid #667eea;
+/* PSA Exclusive - Features PSA has that Tigerpaw doesn't */
+.feature-row.psa-exclusive {
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border-left: 4px solid #10B981;
+    position: relative;
 }
 
-.feature-row.psa-advantage:hover {
-    background: linear-gradient(90deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%);
+.feature-row.psa-exclusive::after {
+    content: "PSA EXCLUSIVE";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #10B981;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* PSA Linked - Features that auto-sync from Billing */
+.feature-row.psa-linked {
+    background: linear-gradient(90deg, rgba(36, 153, 182, 0.1) 0%, rgba(36, 153, 182, 0.03) 100%);
+    border-left: 4px solid var(--primary-blue);
+}
+
+/* PSA Coming - Features in development */
+.feature-row.psa-coming {
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.03) 100%);
+    border-left: 4px solid var(--warning);
+}
+
+.feature-row.psa-exclusive:hover,
+.feature-row.psa-linked:hover,
+.feature-row.psa-coming:hover {
+    opacity: 0.95;
 }
 
 /* Migration Value Section */
