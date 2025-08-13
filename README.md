@@ -1,77 +1,42 @@
-# Rev.io Platform Feature Comparison
+# PSA Roadmap
 
-## Executive Overview
+Rev.io PSA Roadmap and Platform Feature Comparison
 
-This interactive comparison tool provides a comprehensive view of feature availability across Rev.io PSA, Rev.io Billing, and Tigerpaw platforms. It serves as a living document to support migration planning and product roadmap visibility.
+## View the Dashboard
 
-## Key Insights
+Visit: https://raybargas.github.io/psa-roadmap/
 
-### Platform Architecture
+## About
 
-**Rev.io PSA** operates as a modern microservices architecture that:
-- Provides native PSA functionality for service management, ticketing, and scheduling
-- Integrates seamlessly with Rev.io Billing for all financial operations
-- Maintains a single source of truth for customer and financial data
+This dashboard tracks the feature availability and development roadmap for Rev.io PSA, comparing features across:
+- Rev.io PSA
+- Rev.io Billing
+- Tigerpaw
+- PSA Customer Portal
 
-### Migration Strategy
+## Features
 
-**Automatic Migration**: Features that leverage the billing platform will automatically be available:
-- Customer and contact management
-- All financial operations (invoicing, payments, collections)
-- Billing profiles and payment processing
+- 54+ tracked features across 6 categories
+- Expandable rows with detailed descriptions
+- Migration status tracking
+- Real-time filtering by status
+- Linked features identification
 
-**Manual Migration Required**: PSA-specific features require configuration:
-- Ticket workflows and templates
-- Custom fields and forms
-- User permissions and roles
-- Integration settings
+## Categories
 
-**Future Roadmap**: Features currently in development:
-- Advanced SLA Management (Q2 2025)
-- Enhanced Inventory Management (Q2 2025)
-- Custom Dashboards and Analytics (Q3 2025)
-- Field Service Management (Q3 2025)
-- Mobile Application (Q4 2025)
+- Core Functionality
+- Financial Management
+- Service Management
+- Inventory & Assets
+- Integrations & Connectivity
+- AI & Automation
 
-## How to Use This Tool
+## Status Tracking
 
-1. **Search**: Use the search bar to find specific features
-2. **Filter**: Click category buttons to focus on specific areas
-3. **Legend**: 
-   - ✓ PSA Native: Built directly in Rev.io PSA
-   - 🔗 PSA + Billing: PSA leverages billing platform services
-   - ⏰ On Roadmap: Planned for future release
-   - ✗ Not Available: Feature not yet implemented
-
-## Technical Notes
-
-### API Integration
-Rev.io PSA uses RESTful APIs to communicate with the billing platform, ensuring:
-- Real-time data synchronization
-- Consistent business logic
-- Unified authentication and authorization
-
-### Data Architecture
-- **Centralized**: Customer, financial, and product data in billing platform
-- **Distributed**: PSA-specific operational data (tickets, time logs, schedules)
-- **Hybrid**: Assets and contracts bridge both systems
-
-## Updating This Document
-
-This is a living document that should be updated as:
-- New features are released
-- Roadmap dates are confirmed
-- Migration processes are refined
-
-To update:
-1. Edit the `script.js` file to add/modify features in the `features` array
-2. Update ETAs and migration statuses as needed
-3. The page will automatically reflect changes
-
-## Contact
-
-For questions or updates, please contact the Product Team.
+- ✅ Available - Feature is live and ready
+- 🔧 In Development - Coming in GA release
+- 📅 On Roadmap - Planned for future development
 
 ---
 
-*Last Updated: Check the header of the webpage for the most recent update date*
+*Internal Rev.io Executive Dashboard*
