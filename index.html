@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSA Roadmap & Platform Feature Comparison | Executive Overview</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://www.rev.io/hs-fs/hubfs/Theme%2c%20Identity%2c%20Brand%2c%20Internal%202024/Rev.io%20Brand%20Resources/Rev.io%20Logos%20and%20Glyphs/logo-revio-white.png?width=250&height=65&name=logo-revio-white.png" alt="Rev.io" class="logo-img">
+                    <span class="tagline">PSA Roadmap & Platform Feature Comparison</span>
+                </div>
+                <div class="last-updated">
+                    <span>Last Updated: <span id="lastUpdated"></span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="executive-summary">
+            <h2>Executive Summary</h2>
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Migration Path</h3>
+                        <p>Clear visibility into feature availability across platforms to support migration planning from Tigerpaw and Rev.io Billing to Rev.io PSA.</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Integration Strategy</h3>
+                        <p>Rev.io PSA leverages billing platform services for financial operations while providing dedicated PSA-specific functionality.</p>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Roadmap Visibility</h3>
+                        <p>Track feature development progress with estimated delivery dates for upcoming capabilities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="filters">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search features...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Features</button>
+                    <button class="filter-btn" data-filter="available">✅ Available Today</button>
+                    <button class="filter-btn" data-filter="in-development"><i class="fas fa-tools"></i> In Development</button>
+                    <button class="filter-btn" data-filter="on-roadmap">📅 On Roadmap</button>
+                    <button class="filter-btn" data-filter="linked">🔗 Linked Features</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison-section">
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="check-icon available"><i class="fas fa-check-circle"></i></span>
+                    <span>Available</span>
+                </div>
+                <div class="legend-item">
+                    <span class="check-icon in-dev"><i class="fas fa-tools"></i></span>
+                    <span>In Development</span>
+                </div>
+                <div class="legend-item">
+                    <span class="check-icon roadmap-icon"><i class="fas fa-clock"></i></span>
+                    <span>On Roadmap</span>
+                </div>
+                <div class="legend-item">
+                    <span class="check-icon not-available"><i class="fas fa-times"></i></span>
+                    <span>Not Currently Planned</span>
+                </div>
+                <div class="legend-item">
+                    <span class="linked-indicator">🔗</span>
+                    <span>Linked (Data flows from Billing to PSA)</span>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="comparison-table" id="comparisonTable">
+                    <thead>
+                        <tr>
+                            <th class="feature-col">Feature / Object</th>
+                            <th class="platform-col">Rev.io PSA</th>
+                            <th class="platform-col">Rev.io Billing</th>
+                            <th class="platform-col">Tigerpaw</th>
+                            <th class="platform-col">PSA Customer Portal</th>
+                            <th class="migration-col">Migration</th>
+                            <th class="status-col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Table content will be generated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="critical-callout">
+            <div class="callout-icon">
+                <i class="fas fa-link"></i>
+            </div>
+            <div class="callout-content">
+                <h3>🔗 Linked Features Advantage</h3>
+                <p><strong>Seamless Data Integration for Rev.io Billing Customers</strong></p>
+                <p>Features marked as <span style="background: rgba(90, 209, 242, 0.1); padding: 2px 6px; border-radius: 4px; font-weight: 600;">🔗 LINKED</span> provide instant access to your existing billing data:</p>
+                <ul style="margin: 10px 0 0 20px; list-style: none;">
+                    <li style="margin: 5px 0;">✓ Customer records and contact information</li>
+                    <li style="margin: 5px 0;">✓ Complete invoice and payment history</li>
+                    <li style="margin: 5px 0;">✓ Financial transactions and records</li>
+                    <li style="margin: 5px 0;">✓ Real-time data synchronization</li>
+                </ul>
+                <p style="margin-top: 12px; font-style: italic; color: #92400E;"><strong>Zero migration effort required</strong> — PSA connects directly to your Billing database</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rev.io - PSA Roadmap & Platform Feature Comparison | Executive Internal Document</p>
+            <p class="footer-note">This is a living document. For updates or corrections, please contact the Product Team.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
