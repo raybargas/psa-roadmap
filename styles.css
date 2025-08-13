@@ -728,64 +728,53 @@ body {
 
 /* Tigerpaw Migration Styling */
 .filter-btn.tigerpaw-upgrade {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, rgba(36,153,182,1) 0%, rgba(29,55,86,1) 100%);
     color: white;
     border: none;
     font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .filter-btn.tigerpaw-upgrade:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 12px rgba(36, 153, 182, 0.4);
+    opacity: 0.95;
 }
 
 .filter-btn.tigerpaw-upgrade.active {
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    background: linear-gradient(135deg, rgba(29,55,86,1) 0%, rgba(36,153,182,1) 100%);
 }
 
-/* PSA Exclusive - Features PSA has that Tigerpaw doesn't */
+/* PSA Exclusive - Features PSA has (or is developing) that Tigerpaw doesn't */
 .feature-row.psa-exclusive {
-    background: linear-gradient(90deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
-    border-left: 4px solid #10B981;
+    background: linear-gradient(90deg, rgba(36, 153, 182, 0.12) 0%, rgba(36, 153, 182, 0.04) 100%);
+    border-left: 4px solid rgba(36, 153, 182, 1);
     position: relative;
 }
 
 .feature-row.psa-exclusive::after {
-    content: "PSA EXCLUSIVE";
+    content: "PSA ADVANTAGE";
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    background: #10B981;
+    background: rgba(36, 153, 182, 1);
     color: white;
     padding: 2px 8px;
     border-radius: 4px;
     font-size: 0.7rem;
     font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* PSA Linked - Features that auto-sync from Billing */
-.feature-row.psa-linked {
-    background: linear-gradient(90deg, rgba(36, 153, 182, 0.1) 0%, rgba(36, 153, 182, 0.03) 100%);
-    border-left: 4px solid var(--primary-blue);
-}
-
-/* PSA Coming - Features in development */
-.feature-row.psa-coming {
-    background: linear-gradient(90deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.03) 100%);
-    border-left: 4px solid var(--warning);
-}
-
-.feature-row.psa-exclusive:hover,
-.feature-row.psa-linked:hover,
-.feature-row.psa-coming:hover {
-    opacity: 0.95;
+.feature-row.psa-exclusive:hover {
+    background: linear-gradient(90deg, rgba(36, 153, 182, 0.18) 0%, rgba(36, 153, 182, 0.06) 100%);
 }
 
 /* Migration Value Section */
 .migration-value-section {
     display: none;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, rgba(36,153,182,1) 0%, rgba(29,55,86,1) 100%);
     padding: 3rem 0;
     margin: 2rem 0;
 }
@@ -798,10 +787,12 @@ body {
 }
 
 .migration-value-card h3 {
-    color: var(--primary-dark);
+    color: rgba(29,55,86,1);
     font-size: 1.8rem;
     margin-bottom: 2rem;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .value-grid {
@@ -817,13 +808,14 @@ body {
 
 .value-item i {
     font-size: 2.5rem;
-    color: #667eea;
+    color: rgba(36,153,182,1);
     margin-bottom: 1rem;
 }
 
 .value-item h4 {
-    color: var(--primary-dark);
+    color: rgba(29,55,86,1);
     margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .value-item p {
@@ -847,13 +839,59 @@ body {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #667eea;
+    color: rgba(36,153,182,1);
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
     color: var(--text-secondary);
     font-size: 0.9rem;
+}
+
+/* Exclusive Features Section */
+.exclusive-features-section {
+    background: rgba(36,153,182,0.05);
+    border: 2px solid rgba(36,153,182,0.2);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.exclusive-features-section h4 {
+    color: rgba(29,55,86,1);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.exclusive-features-section .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.exclusive-features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.exclusive-features-list li {
+    padding: 0.5rem;
+    background: white;
+    border-left: 3px solid rgba(36,153,182,1);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: rgba(29,55,86,1);
+    transition: all 0.2s ease;
+}
+
+.exclusive-features-list li:hover {
+    background: rgba(36,153,182,0.1);
+    transform: translateX(2px);
 }
 
 /* Footer */

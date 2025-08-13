@@ -757,12 +757,10 @@ function renderTable(data, highlightMode = false) {
                 }
                 // Highlight PSA advantages in Tigerpaw migration mode
                 if (highlightMode) {
-                    if (feature.revPSA === 'check' && feature.tigerpaw === 'cross') {
+                    // Only highlight features that PSA has (or is developing) but TigerPaw doesn't
+                    if (feature.tigerpaw === 'cross' && 
+                        (feature.revPSA === 'check' || feature.status === 'Coming GA')) {
                         row.classList.add('psa-exclusive');
-                    } else if (feature.linked) {
-                        row.classList.add('psa-linked');
-                    } else if (feature.status === 'Coming GA') {
-                        row.classList.add('psa-coming');
                     }
                 }
                 row.innerHTML = `
@@ -909,10 +907,15 @@ function showTigerpawMigrationValue() {
         valueSection = document.createElement('section');
         valueSection.id = 'migrationValue';
         valueSection.className = 'migration-value-section';
+        
+        // Get exclusive PSA features not in TigerPaw
+        const exclusiveFeatures = features.filter(f => f.revPSA === 'check' && f.tigerpaw === 'cross');
+        const exclusiveList = exclusiveFeatures.map(f => `<li>${f.name}</li>`).join('');
+        
         valueSection.innerHTML = `
             <div class="container">
                 <div class="migration-value-card">
-                    <h3>🎆 Exclusive Rev.io PSA Advantages for Tigerpaw Users</h3>
+                    <h3><i class="fas fa-paw"></i> <i class="fas fa-arrow-right"></i> Exclusive Rev.io PSA Advantages</h3>
                     <div class="value-grid">
                         <div class="value-item">
                             <i class="fas fa-cloud"></i>
@@ -922,7 +925,7 @@ function showTigerpawMigrationValue() {
                         <div class="value-item">
                             <i class="fas fa-link"></i>
                             <h4>Seamless Billing Integration</h4>
-                            <p>${features.filter(f => f.linked).length} linked features with automatic data flow from Rev.io Billing</p>
+                            <p>${features.filter(f => f.linked).length} linked features with Rev.io Billing for unified operations</p>
                         </div>
                         <div class="value-item">
                             <i class="fas fa-robot"></i>
@@ -932,12 +935,21 @@ function showTigerpawMigrationValue() {
                         <div class="value-item">
                             <i class="fas fa-chart-line"></i>
                             <h4>Advanced Analytics</h4>
-                            <p>Modern dashboards with OpenTelemetry instrumentation for deep insights</p>
+                            <p>Modern dashboards with real-time insights and reporting</p>
                         </div>
                     </div>
+                    
+                    <div class="exclusive-features-section">
+                        <h4><i class="fas fa-star"></i> Features You'll Gain with Rev.io PSA</h4>
+                        <p class="subtitle">Exclusive capabilities not available in Tigerpaw:</p>
+                        <ul class="exclusive-features-list">
+                            ${exclusiveList}
+                        </ul>
+                    </div>
+                    
                     <div class="migration-stats">
                         <div class="stat">
-                            <span class="stat-number">${features.filter(f => f.revPSA === 'check' && f.tigerpaw === 'cross').length}</span>
+                            <span class="stat-number">${exclusiveFeatures.length}</span>
                             <span class="stat-label">Exclusive PSA Features</span>
                         </div>
                         <div class="stat">
@@ -945,8 +957,8 @@ function showTigerpawMigrationValue() {
                             <span class="stat-label">Features In Development</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">${features.filter(f => f.migration === 'automatic').length}</span>
-                            <span class="stat-label">Auto-Migration Features</span>
+                            <span class="stat-number">${features.filter(f => f.linked).length}</span>
+                            <span class="stat-label">Linked Billing Features</span>
                         </div>
                     </div>
                 </div>
