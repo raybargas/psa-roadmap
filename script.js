@@ -42,8 +42,11 @@ function loadContent(contentId) {
 }
 
 function showSalesContent(contentId) {
-    // Hide all sections first
+    // Hide main sections
     document.getElementById('executiveSummary').style.display = 'none';
+    document.querySelector('.filters-section').style.display = 'none';
+    document.querySelector('.comparison-section').style.display = 'none';
+    document.querySelector('.critical-callout').style.display = 'none';
     
     // Get or create sales content area
     let salesContent = document.getElementById('salesContent');
@@ -51,8 +54,8 @@ function showSalesContent(contentId) {
         salesContent = document.createElement('section');
         salesContent.id = 'salesContent';
         salesContent.className = 'sales-content';
-        const mainContainer = document.querySelector('.container');
-        mainContainer.insertBefore(salesContent, mainContainer.firstChild);
+        const mainContent = document.querySelector('.main-content');
+        mainContent.insertBefore(salesContent, mainContent.firstChild);
     }
     
     // Load content based on ID
