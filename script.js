@@ -428,7 +428,7 @@ const features = [
         category: "core",
         revPSA: "cross", 
         revBilling: "check", 
-        tigerpaw: "check", 
+        tigerpaw: "cross", 
         linked: false,
         migration: "not-applicable",
         portal: "cross",
