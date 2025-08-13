@@ -1037,27 +1037,27 @@ function setupEventListeners() {
             
             switch(filter) {
                 case 'all':
-                    renderTable(features);
+                    renderTable(features, false);
                     break;
                 case 'available':
                     // Show only features with status "Available"
                     filtered = features.filter(f => f.status === 'Available');
-                    renderTable(filtered);
+                    renderTable(filtered, false);
                     break;
                 case 'in-development':
                     // Show only features with status "Coming GA" (in development)
                     filtered = features.filter(f => f.status === 'Coming GA');
-                    renderTable(filtered);
+                    renderTable(filtered, false);
                     break;
                 case 'on-roadmap':
                     // Show only features with status "On Roadmap"
                     filtered = features.filter(f => f.status === 'On Roadmap');
-                    renderTable(filtered);
+                    renderTable(filtered, false);
                     break;
                 case 'linked':
                     // Show only linked features
                     filtered = features.filter(f => f.linked);
-                    renderTable(filtered);
+                    renderTable(filtered, false);
                     break;
                 case 'tigerpaw-advantage':
                     // Show ALL features, but highlight where PSA has advantage
