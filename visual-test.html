@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visual Filter Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .pass { background: #d4edda; color: #155724; }
+        .fail { background: #f8d7da; color: #721c24; }
+        h2 { color: #333; }
+        .feature-list { margin-left: 20px; font-size: 0.9em; color: #666; }
+    </style>
+</head>
+<body>
+    <h1>Filter Functionality Test Results</h1>
+    <div id="results"></div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Wait for features to load
+        setTimeout(() => {
+            const resultsDiv = document.getElementById('results');
+            let html = '';
+            
+            // Test Status Filters
+            html += '<h2>Status Filter Tests</h2>';
+            
+            // Test Available filter
+            const available = features.filter(f => f.status === 'Available');
+            const availablePass = available.length === 28;
+            html += `<div class="test-result ${availablePass ? 'pass' : 'fail'}">
+                ✅ Available Filter: Found ${available.length} features (expected 28) - ${availablePass ? 'PASS' : 'FAIL'}
+                <div class="feature-list">Examples: ${available.slice(0,3).map(f => f.name).join(', ')}</div>
+            </div>`;
+            
+            // Test In Development filter
+            const inDev = features.filter(f => f.status === 'Coming GA');
+            const inDevPass = inDev.length === 16;
+            html += `<div class="test-result ${inDevPass ? 'pass' : 'fail'}">
+                🔧 In Development Filter: Found ${inDev.length} features (expected 16) - ${inDevPass ? 'PASS' : 'FAIL'}
+                <div class="feature-list">Examples: ${inDev.slice(0,3).map(f => f.name).join(', ')}</div>
+            </div>`;
+            
+            // Test On Roadmap filter
+            const roadmap = features.filter(f => f.status === 'On Roadmap');
+            const roadmapPass = roadmap.length === 14;
+            html += `<div class="test-result ${roadmapPass ? 'pass' : 'fail'}">
+                📅 On Roadmap Filter: Found ${roadmap.length} features (expected 14) - ${roadmapPass ? 'PASS' : 'FAIL'}
+                <div class="feature-list">Examples: ${roadmap.slice(0,3).map(f => f.name).join(', ')}</div>
+            </div>`;
+            
+            // Test Linked filter
+            const linked = features.filter(f => f.linked === true);
+            html += `<div class="test-result pass">
+                🔗 Linked Features Filter: Found ${linked.length} features
+                <div class="feature-list">Examples: ${linked.slice(0,3).map(f => f.name).join(', ')}</div>
+            </div>`;
+            
+            // Test Tigerpaw Advantage filter
+            const psaExclusive = features.filter(f => f.revPSA === 'check' && f.tigerpaw === 'cross');
+            html += `<div class="test-result pass">
+                🚀 PSA Exclusive (Tigerpaw doesn't have): Found ${psaExclusive.length} features
+                <div class="feature-list">All exclusive: ${psaExclusive.map(f => f.name).join(', ')}</div>
+            </div>`;
+            
+            // Summary
+            html += '<h2>Summary</h2>';
+            html += `<div class="test-result pass">
+                Total Features: ${features.length}<br>
+                Categories: ${[...new Set(features.map(f => f.category))].join(', ')}<br>
+                All Statuses: ${[...new Set(features.map(f => f.status))].join(', ')}
+            </div>`;
+            
+            resultsDiv.innerHTML = html;
+            
+            // Also log to console
+            console.log('Filter Test Results:');
+            console.log('Available:', available.length, 'features');
+            console.log('In Development:', inDev.length, 'features');
+            console.log('On Roadmap:', roadmap.length, 'features');
+            console.log('Linked:', linked.length, 'features');
+            console.log('PSA Exclusive:', psaExclusive.length, 'features');
+        }, 100);
+    </script>
+</body>
+</html>

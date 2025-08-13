@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Filter Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Direct Filter Test</h1>
+        
+        <div class="filter-buttons">
+            <button onclick="testFilter('all')">All (58)</button>
+            <button onclick="testFilter('available')">Available (28)</button>
+            <button onclick="testFilter('in-dev')">In Dev (16)</button>
+            <button onclick="testFilter('roadmap')">Roadmap (14)</button>
+        </div>
+        
+        <h2 id="status">Click a button to test</h2>
+        
+        <div class="table-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Rev.io PSA</th>
+                        <th>Rev.io Billing</th>
+                        <th>Tigerpaw</th>
+                        <th>Portal</th>
+                        <th>Migration</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        function testFilter(type) {
+            let filtered;
+            const status = document.getElementById('status');
+            
+            switch(type) {
+                case 'all':
+                    filtered = features;
+                    status.textContent = `Showing ALL features (${features.length} total)`;
+                    break;
+                case 'available':
+                    filtered = features.filter(f => f.status === 'Available');
+                    status.textContent = `Showing AVAILABLE features (${filtered.length} found)`;
+                    break;
+                case 'in-dev':
+                    filtered = features.filter(f => f.status === 'Coming GA');
+                    status.textContent = `Showing IN DEVELOPMENT features (${filtered.length} found)`;
+                    break;
+                case 'roadmap':
+                    filtered = features.filter(f => f.status === 'On Roadmap');
+                    status.textContent = `Showing ROADMAP features (${filtered.length} found)`;
+                    break;
+            }
+            
+            // Directly render without category headers
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+            
+            // Just show the filtered features
+            filtered.forEach(feature => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${feature.name}</td>
+                    <td>${feature.revPSA === 'check' ? '✓' : '✗'}</td>
+                    <td>${feature.revBilling === 'check' ? '✓' : '✗'}</td>
+                    <td>${feature.tigerpaw === 'check' ? '✓' : '✗'}</td>
+                    <td>${feature.portal === 'check' ? '✓' : '✗'}</td>
+                    <td>${feature.migration || 'N/A'}</td>
+                    <td>${feature.status}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+            
+            console.log(`Rendered ${filtered.length} features`);
+        }
+        
+        // Start with all features
+        setTimeout(() => testFilter('all'), 100);
+    </script>
+</body>
+</html>

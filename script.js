@@ -719,36 +719,35 @@ function renderTable(data, highlightMode = false) {
     tableBody.innerHTML = '';
     
     if (data.length === 0) {
-        // Still show category headers even with no data
-        const categories = ['core', 'financial', 'service', 'inventory', 'integrations', 'ai'];
-        categories.forEach(category => {
-            const headerRow = document.createElement('tr');
-            headerRow.className = 'feature-group';
-            headerRow.innerHTML = `
-                <td colspan="7">${getCategoryName(category)}</td>
-            `;
-            tableBody.appendChild(headerRow);
-        });
+        // Show a message when no features match the filter
+        const messageRow = document.createElement('tr');
+        messageRow.innerHTML = `
+            <td colspan="7" style="text-align: center; padding: 2rem; color: #666;">
+                No features match the selected filter criteria.
+            </td>
+        `;
+        tableBody.appendChild(messageRow);
         return;
     }
     
     // Group features by category
     const grouped = groupByCategory(data);
     
-    // Always show all categories in order, even if empty
+    // Only show categories that have features in the filtered data
     const allCategories = ['core', 'financial', 'service', 'inventory', 'integrations', 'ai'];
     
     allCategories.forEach(category => {
-        // Add category header row
-        const headerRow = document.createElement('tr');
-        headerRow.className = 'feature-group';
-        headerRow.innerHTML = `
-            <td colspan="7">${getCategoryName(category)}</td>
-        `;
-        tableBody.appendChild(headerRow);
-        
-        // Add feature rows if this category has data
-        if (grouped[category]) {
+        // Only add category header if there are features in this category
+        if (grouped[category] && grouped[category].length > 0) {
+            // Add category header row
+            const headerRow = document.createElement('tr');
+            headerRow.className = 'feature-group';
+            headerRow.innerHTML = `
+                <td colspan="7">${getCategoryName(category)}</td>
+            `;
+            tableBody.appendChild(headerRow);
+            
+            // Add feature rows for this category
             grouped[category].forEach(feature => {
                 const row = document.createElement('tr');
                 row.dataset.category = feature.category;
