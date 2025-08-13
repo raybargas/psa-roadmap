@@ -714,7 +714,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Render the comparison table
-function renderTable(data) {
+function renderTable(data, highlightMode = false) {
     const tableBody = document.getElementById('tableBody');
     tableBody.innerHTML = '';
     
@@ -755,6 +755,10 @@ function renderTable(data) {
                 row.classList.add('feature-row');
                 if (feature.description) {
                     row.classList.add('has-details');
+                }
+                // Highlight PSA advantages in Tigerpaw migration mode
+                if (highlightMode && feature.revPSA === 'check' && feature.tigerpaw === 'cross') {
+                    row.classList.add('psa-advantage');
                 }
                 row.innerHTML = `
                     <td>
@@ -892,6 +896,73 @@ function updateMigrationLists() {
     gapsList.innerHTML = gapFeatures.map(f => `<li>${f}</li>`).join('');
 }
 
+// Show Tigerpaw migration value proposition
+function showTigerpawMigrationValue() {
+    // Find or create the migration value section
+    let valueSection = document.getElementById('migrationValue');
+    if (!valueSection) {
+        valueSection = document.createElement('section');
+        valueSection.id = 'migrationValue';
+        valueSection.className = 'migration-value-section';
+        valueSection.innerHTML = `
+            <div class="container">
+                <div class="migration-value-card">
+                    <h3>🎆 Exclusive Rev.io PSA Advantages for Tigerpaw Users</h3>
+                    <div class="value-grid">
+                        <div class="value-item">
+                            <i class="fas fa-cloud"></i>
+                            <h4>Modern Cloud Architecture</h4>
+                            <p>Built on Azure with modern React/TypeScript stack vs legacy desktop application</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-link"></i>
+                            <h4>Seamless Billing Integration</h4>
+                            <p>${features.filter(f => f.linked).length} linked features with automatic data flow from Rev.io Billing</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-robot"></i>
+                            <h4>AI-Powered Assistant</h4>
+                            <p>Rev.ii AI Assistant for intelligent automation and assistance</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Advanced Analytics</h4>
+                            <p>Modern dashboards with OpenTelemetry instrumentation for deep insights</p>
+                        </div>
+                    </div>
+                    <div class="migration-stats">
+                        <div class="stat">
+                            <span class="stat-number">${features.filter(f => f.revPSA === 'check' && f.tigerpaw === 'cross').length}</span>
+                            <span class="stat-label">Exclusive PSA Features</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">${features.filter(f => f.status === 'Coming GA').length}</span>
+                            <span class="stat-label">Features In Development</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">${features.filter(f => f.migration === 'automatic').length}</span>
+                            <span class="stat-label">Auto-Migration Features</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        // Insert after executive summary
+        const execSummary = document.getElementById('executiveSummary');
+        execSummary.parentNode.insertBefore(valueSection, execSummary.nextSibling);
+    }
+    valueSection.style.display = 'block';
+    valueSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Hide migration value section
+function hideMigrationValue() {
+    const valueSection = document.getElementById('migrationValue');
+    if (valueSection) {
+        valueSection.style.display = 'none';
+    }
+}
+
 // Toggle detail row expansion
 function toggleDetailRow(row, detailRow) {
     const expandIcon = row.querySelector('.expand-icon');
@@ -949,6 +1020,11 @@ function setupEventListeners() {
             document.querySelectorAll('.filter-btn:not(.disabled)').forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
+            // Hide migration value section for non-tigerpaw filters
+            if (filter !== 'tigerpaw-advantage') {
+                hideMigrationValue();
+            }
+            
             // Filter table
             const filter = this.dataset.filter;
             let filtered;
@@ -976,6 +1052,15 @@ function setupEventListeners() {
                     // Show only linked features
                     filtered = features.filter(f => f.linked);
                     renderTable(filtered);
+                    break;
+                case 'tigerpaw-advantage':
+                    // Show features where PSA has advantage over Tigerpaw
+                    filtered = features.filter(f => 
+                        (f.revPSA === 'check' && f.tigerpaw === 'cross') || 
+                        (f.status === 'Coming GA' && f.tigerpaw === 'cross')
+                    );
+                    renderTable(filtered, true); // true = highlight mode
+                    showTigerpawMigrationValue();
                     break;
                 default:
                     renderTable(features);
