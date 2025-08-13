@@ -769,9 +769,12 @@ function renderTable(data, highlightMode = false) {
                 }
                 // Highlight PSA advantages in Tigerpaw migration mode
                 if (highlightMode) {
-                    // Only highlight features that PSA has (or is developing) but TigerPaw doesn't
+                    // Highlight features that PSA has/will have but TigerPaw doesn't
                     if (feature.tigerpaw === 'cross' && 
-                        (feature.revPSA === 'check' || feature.status === 'Coming GA')) {
+                        (feature.revPSA === 'check' || 
+                         feature.status === 'Coming GA' || 
+                         feature.status === 'On Roadmap' ||
+                         feature.status.includes('Coming'))) {
                         row.classList.add('psa-exclusive');
                     }
                 }
@@ -920,9 +923,14 @@ function showTigerpawMigrationValue() {
         valueSection.id = 'migrationValue';
         valueSection.className = 'migration-value-section';
         
-        // Get exclusive PSA features not in TigerPaw
-        const exclusiveFeatures = features.filter(f => f.revPSA === 'check' && f.tigerpaw === 'cross');
-        const exclusiveList = exclusiveFeatures.map(f => `<li>${f.name}</li>`).join('');
+        // Get exclusive PSA features not in TigerPaw (including roadmap items)
+        const exclusiveFeatures = features.filter(f => 
+            f.tigerpaw === 'cross' && 
+            (f.revPSA === 'check' || f.status === 'On Roadmap' || f.status.includes('Coming'))
+        );
+        const exclusiveList = exclusiveFeatures.map(f => 
+            `<li>${f.name}${f.status === 'On Roadmap' || f.status.includes('Coming') ? ' <em>(Coming Soon)</em>' : ''}</li>`
+        ).join('');
         
         valueSection.innerHTML = `
             <div class="container">
