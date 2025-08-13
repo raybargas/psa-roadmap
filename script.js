@@ -1026,13 +1026,13 @@ function setupEventListeners() {
             document.querySelectorAll('.filter-btn:not(.disabled)').forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
+            // Get filter type
+            const filter = this.dataset.filter;
+            
             // Hide migration value section for non-tigerpaw filters
             if (filter !== 'tigerpaw-advantage') {
                 hideMigrationValue();
             }
-            
-            // Filter table
-            const filter = this.dataset.filter;
             let filtered;
             
             switch(filter) {

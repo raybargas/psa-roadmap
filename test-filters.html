@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Filter Buttons</title>
+</head>
+<body>
+    <h1>Testing Filter Functionality</h1>
+    <p>Open the console to see filter results</p>
+    
+    <script src="script.js"></script>
+    <script>
+        // Wait for features to load
+        setTimeout(() => {
+            console.log('Testing filters...');
+            
+            // Test each filter
+            const tests = [
+                { filter: 'Available', expected: 28 },
+                { filter: 'Coming GA', expected: 16 },
+                { filter: 'On Roadmap', expected: 14 }
+            ];
+            
+            tests.forEach(test => {
+                const filtered = features.filter(f => f.status === test.filter);
+                const passed = filtered.length === test.expected;
+                console.log(`${test.filter}: ${filtered.length} features (expected ${test.expected}) - ${passed ? '✅ PASS' : '❌ FAIL'}`);
+                
+                if (!passed) {
+                    console.log('Failed features:', filtered.map(f => f.name));
+                }
+            });
+            
+            // Test linked filter
+            const linked = features.filter(f => f.linked);
+            console.log(`Linked features: ${linked.length}`);
+            
+            // Show some examples
+            console.log('\nSample In Development features:');
+            features.filter(f => f.status === 'Coming GA').slice(0, 5).forEach(f => {
+                console.log(`  - ${f.name}`);
+            });
+        }, 100);
+    </script>
+</body>
+</html>
