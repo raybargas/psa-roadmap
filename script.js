@@ -516,6 +516,18 @@ const features = [
         status: "On Roadmap"
     },
     { 
+        name: "Communications Billing", 
+        category: "financial",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "cross", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Advanced telecommunications billing including VoIP, SMS, and data services"
+    },
+    { 
         name: "Package Quantities", 
         category: "inventory",
         revPSA: "cross", 
