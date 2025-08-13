@@ -1,3 +1,140 @@
+// Navigation functions
+function toggleNav() {
+    const nav = document.getElementById('leftNav');
+    const wrapper = document.getElementById('mainWrapper');
+    nav.classList.toggle('open');
+    wrapper.classList.toggle('nav-open');
+}
+
+function toggleSection(header) {
+    const content = header.nextElementSibling;
+    const isExpanded = header.classList.contains('expanded');
+    
+    // Close all sections
+    document.querySelectorAll('.nav-section-header').forEach(h => {
+        h.classList.remove('expanded');
+        h.nextElementSibling.classList.remove('show');
+    });
+    
+    // Open clicked section if it was closed
+    if (!isExpanded) {
+        header.classList.add('expanded');
+        content.classList.add('show');
+    }
+}
+
+function loadContent(contentId) {
+    // Remove active class from all items
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Add active class to clicked item
+    event.target.classList.add('active');
+    
+    // Show sales content based on selection
+    showSalesContent(contentId);
+}
+
+function showSalesContent(contentId) {
+    // Hide all sections first
+    document.getElementById('executiveSummary').style.display = 'none';
+    
+    // Get or create sales content area
+    let salesContent = document.getElementById('salesContent');
+    if (!salesContent) {
+        salesContent = document.createElement('section');
+        salesContent.id = 'salesContent';
+        salesContent.className = 'sales-content';
+        const mainContainer = document.querySelector('.container');
+        mainContainer.insertBefore(salesContent, mainContainer.firstChild);
+    }
+    
+    // Load content based on ID
+    const content = getSalesContent(contentId);
+    salesContent.innerHTML = content;
+    salesContent.style.display = 'block';
+}
+
+function getSalesContent(contentId) {
+    const contents = {
+        'tigerpaw-psa-advantages': `
+            <div class="content-header">
+                <h1>TigerPaw → Rev.io PSA: Feature Advantages</h1>
+            </div>
+            <div class="content-card">
+                <h3>Key Advantages Over TigerPaw</h3>
+                <ul class="advantage-list">
+                    <li class="advantage-item">
+                        <h4>🌐 Modern Cloud Architecture</h4>
+                        <p>Native cloud-based platform with 99.9% uptime SLA, automatic updates, and no on-premise infrastructure requirements.</p>
+                    </li>
+                    <li class="advantage-item">
+                        <h4>💰 Integrated Financial Operations</h4>
+                        <p>Direct integration with Rev.io Billing platform for real-time invoicing, payments, and financial reporting.</p>
+                    </li>
+                    <li class="advantage-item">
+                        <h4>📊 Advanced Reporting & Analytics</h4>
+                        <p>Real-time dashboards, customizable reports, and predictive analytics that TigerPaw lacks.</p>
+                    </li>
+                    <li class="advantage-item">
+                        <h4>🔄 Workflow Automation</h4>
+                        <p>Automated ticket routing, SLA management, and escalation rules. Reduce manual tasks by up to 60%.</p>
+                    </li>
+                    <li class="advantage-item">
+                        <h4>📱 Mobile-First Design</h4>
+                        <p>Full-featured mobile app for iOS and Android with offline capabilities.</p>
+                    </li>
+                </ul>
+            </div>
+        `,
+        'billing-psa-linked': `
+            <div class="content-header">
+                <h1>Rev.io Billing + PSA: Zero Migration Advantage</h1>
+            </div>
+            <div class="content-card">
+                <h3>🔗 Instantly Available Data - No Migration Required</h3>
+                <ul class="advantage-list">
+                    <li class="advantage-item">
+                        <h4>Customer Records</h4>
+                        <p>All customer data flows directly from Billing - contacts, addresses, service locations, and custom fields.</p>
+                    </li>
+                    <li class="advantage-item">
+                        <h4>Invoice History</h4>
+                        <p>Complete billing history available immediately in PSA for reference during service delivery.</p>
+                    </li>
+                    <li class="advantage-item">
+                        <h4>Payment Records</h4>
+                        <p>Real-time payment status and history accessible within PSA workflows.</p>
+                    </li>
+                    <li class="advantage-item">
+                        <h4>Product Catalog</h4>
+                        <p>Unified product and service catalog shared between Billing and PSA.</p>
+                    </li>
+                    <li class="advantage-item">
+                        <h4>Financial Reporting</h4>
+                        <p>Consolidated financial reporting across both platforms with single source of truth.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-card">
+                <h3>How It Works</h3>
+                <p>Rev.io PSA connects directly to your Rev.io Billing database, providing immediate access to all your billing data without any migration effort. This unique architecture means you can start using PSA today with all your historical data intact.</p>
+            </div>
+        `,
+        'default': `
+            <div class="content-header">
+                <h1>Sales Enablement Resources</h1>
+            </div>
+            <div class="content-card">
+                <p>Select a topic from the navigation menu to view detailed information.</p>
+            </div>
+        `
+    };
+    
+    return contents[contentId] || contents['default'];
+}
+
 // Feature data with categories, migration status, and descriptions
 const features = [
     // Core Customer Management
@@ -707,6 +844,12 @@ const features = [
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
+    // Set first nav item as active
+    const firstNavItem = document.querySelector('.nav-item');
+    if (firstNavItem) {
+        firstNavItem.classList.add('active');
+    }
+    
     // Set last updated date
     const today = new Date();
     document.getElementById('lastUpdated').textContent = today.toLocaleDateString('en-US', { 

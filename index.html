@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
-        <div class="container">
+        <div class="header-container">
             <div class="header-content">
                 <div class="logo">
                     <img src="https://www.rev.io/hs-fs/hubfs/Theme%2c%20Identity%2c%20Brand%2c%20Internal%202024/Rev.io%20Brand%20Resources/Rev.io%20Logos%20and%20Glyphs/logo-revio-white.png?width=250&height=65&name=logo-revio-white.png" alt="Rev.io" class="logo-img" onclick="window.location.reload()" style="cursor: pointer;">
@@ -22,7 +23,35 @@
         </div>
     </header>
 
-    <main class="container">
+    <!-- Page Layout Container -->
+    <div class="page-layout">
+        <!-- Left Navigation -->
+        <nav class="left-nav" id="leftNav">
+            <div class="nav-header">
+                <h3>Quick Links</h3>
+            </div>
+            <div class="nav-content">
+                <div class="nav-item" onclick="showMainContent()">
+                    <i class="fas fa-table"></i>
+                    Feature Comparison
+                </div>
+                <div class="nav-item" onclick="loadContent('tigerpaw-migration')">
+                    <i class="fas fa-exchange-alt"></i>
+                    TigerPaw → PSA
+                </div>
+                <div class="nav-item" onclick="loadContent('billing-add-psa')">
+                    <i class="fas fa-plus-circle"></i>
+                    Billing + PSA
+                </div>
+                <div class="nav-item" onclick="loadContent('linked-features')">
+                    <i class="fas fa-link"></i>
+                    Linked Features
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
         <section class="executive-summary" id="executiveSummary">
             <h2>Executive Summary</h2>
             <div class="summary-cards">
@@ -68,7 +97,6 @@
                     <button class="filter-btn" data-filter="in-development"><i class="fas fa-tools"></i> In Development</button>
                     <button class="filter-btn" data-filter="on-roadmap"><i class="fas fa-road"></i> On Roadmap</button>
                     <button class="filter-btn" data-filter="linked">🔗 Linked Features</button>
-                    <button class="filter-btn tigerpaw-upgrade" data-filter="tigerpaw-advantage">🚀 Tigerpaw → PSA Advantages</button>
                 </div>
             </div>
         </section>
@@ -112,10 +140,11 @@
             </div>
         </section>
 
-    </main>
+        </main>
+    </div>
 
     <footer class="footer">
-        <div class="container">
+        <div class="footer-container">
             <p>&copy; 2025 Rev.io - PSA Roadmap & Platform Feature Comparison | Executive Internal Document</p>
             <p class="footer-note">This is a living document. For updates or corrections, please contact the Product Team.</p>
         </div>
