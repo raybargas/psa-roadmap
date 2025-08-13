@@ -276,6 +276,15 @@ body {
     color: var(--warning);
 }
 
+/* Match filter button colors to status badges */
+.filter-btn[data-filter="available"] .fa-check {
+    color: var(--success);
+}
+
+.filter-btn[data-filter="on-roadmap"] .fa-road {
+    color: var(--primary-blue);
+}
+
 /* Legend */
 .legend {
     display: flex;
