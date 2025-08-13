@@ -69,178 +69,161 @@ function getSalesContent(contentId) {
         'tigerpaw-migration': `
             <div class="migration-hero">
                 <div class="hero-content">
-                    <h1 class="hero-title">Modernize Your Service Operations</h1>
-                    <p class="hero-subtitle">Transform from TigerPaw's legacy limitations to Rev.io PSA's cloud-powered innovation</p>
+                    <h1 class="hero-title">Rev.io PSA Exclusive Features</h1>
+                    <p class="hero-subtitle">Capabilities available in Rev.io PSA that Tigerpaw doesn't offer</p>
                 </div>
             </div>
 
-            <div class="pain-points-section">
-                <h2 class="section-title">Current TigerPaw Challenges</h2>
-                <div class="pain-points-grid">
-                    <div class="pain-point">
-                        <div class="pain-icon">
-                            <i class="fas fa-server"></i>
+            <div class="features-section">
+                <div class="feature-category">
+                    <h2 class="category-title">Available Today</h2>
+                    <p class="category-description">Features currently live in Rev.io PSA that Tigerpaw lacks</p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <h3>Billing Profiles</h3>
+                            <p>Advanced billing profile management for complex billing scenarios and customer-specific pricing structures</p>
                         </div>
-                        <h3>On-Premise Infrastructure</h3>
-                        <p>Costly server maintenance, manual updates, and limited remote access capabilities</p>
-                    </div>
-                    <div class="pain-point">
-                        <div class="pain-icon">
-                            <i class="fas fa-mobile-alt"></i>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <h3>Charges Management</h3>
+                            <p>Comprehensive charge tracking system with automated billing workflows and real-time synchronization</p>
                         </div>
-                        <h3>Limited Mobile Access</h3>
-                        <p>Field technicians struggle with outdated or non-existent mobile functionality</p>
-                    </div>
-                    <div class="pain-point">
-                        <div class="pain-icon">
-                            <i class="fas fa-chart-line"></i>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3>Advanced Analytics</h3>
+                            <p>OpenTelemetry-powered analytics with real-time dashboards, custom reporting, and performance monitoring</p>
                         </div>
-                        <h3>Basic Reporting</h3>
-                        <p>Static reports that require manual compilation and lack real-time insights</p>
-                    </div>
-                    <div class="pain-point">
-                        <div class="pain-icon">
-                            <i class="fas fa-puzzle-piece"></i>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <h3>Google Integration</h3>
+                            <p>Native Google Calendar sync and productivity suite integration for seamless scheduling and collaboration</p>
                         </div>
-                        <h3>Integration Limitations</h3>
-                        <p>Difficult to connect with modern tools, creating data silos and inefficiencies</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="solution-section">
-                <h2 class="section-title">The Rev.io PSA Advantage</h2>
-                <div class="advantage-grid">
-                    <div class="advantage-card featured">
-                        <div class="advantage-header">
-                            <i class="fas fa-cloud"></i>
-                            <h3>100% Cloud-Based</h3>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>PAX8 Integration</h3>
+                            <p>Direct integration with PAX8 marketplace for automated product provisioning and customer management</p>
                         </div>
-                        <ul class="advantage-points">
-                            <li>Access from anywhere, anytime</li>
-                            <li>Automatic updates and backups</li>
-                            <li>99.9% uptime SLA guarantee</li>
-                            <li>No IT infrastructure costs</li>
-                        </ul>
-                        <div class="advantage-stat">
-                            <span class="stat-number">73%</span>
-                            <span class="stat-label">Reduction in IT costs</span>
-                        </div>
-                    </div>
-                    <div class="advantage-card">
-                        <div class="advantage-header">
-                            <i class="fas fa-sync-alt"></i>
-                            <h3>Seamless Integrations</h3>
-                        </div>
-                        <ul class="advantage-points">
-                            <li>Native billing integration</li>
-                            <li>RESTful API architecture</li>
-                            <li>Pre-built connectors</li>
-                            <li>Real-time data sync</li>
-                        </ul>
-                        <div class="advantage-stat">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Integration partners</span>
-                        </div>
-                    </div>
-                    <div class="advantage-card">
-                        <div class="advantage-header">
-                            <i class="fas fa-robot"></i>
-                            <h3>Intelligent Automation</h3>
-                        </div>
-                        <ul class="advantage-points">
-                            <li>Auto ticket routing</li>
-                            <li>SLA management</li>
-                            <li>Smart escalations</li>
-                            <li>Workflow automation</li>
-                        </ul>
-                        <div class="advantage-stat">
-                            <span class="stat-number">60%</span>
-                            <span class="stat-label">Less manual work</span>
-                        </div>
-                    </div>
-                    <div class="advantage-card">
-                        <div class="advantage-header">
-                            <i class="fas fa-mobile"></i>
-                            <h3>Mobile Excellence</h3>
-                        </div>
-                        <ul class="advantage-points">
-                            <li>Native iOS & Android apps</li>
-                            <li>Offline capabilities</li>
-                            <li>Full feature parity</li>
-                            <li>Real-time updates</li>
-                        </ul>
-                        <div class="advantage-stat">
-                            <span class="stat-number">2.5x</span>
-                            <span class="stat-label">Faster field service</span>
+                        <div class="feature-card featured">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>Rev.ii AI Assistant</h3>
+                            <p>Conversational AI assistant with context-aware prompts for automated ticket classification, intelligent routing, and predictive insights</p>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="roi-section">
-                <h2 class="section-title">Return on Investment</h2>
-                <div class="roi-grid">
-                    <div class="roi-item">
-                        <div class="roi-icon">
-                            <i class="fas fa-dollar-sign"></i>
+                <div class="feature-category">
+                    <h2 class="category-title">Coming Soon (In Development)</h2>
+                    <p class="category-description">Features actively being developed for general availability</p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h3>Accounting Periods</h3>
+                            <p>Financial period management for advanced accounting workflows and period-based reporting</p>
+                            <span class="status-badge">Coming GA</span>
                         </div>
-                        <h3>Lower Total Cost</h3>
-                        <p>Eliminate server costs, reduce IT overhead, and consolidate licensing</p>
-                        <span class="roi-value">Save $45K+ annually</span>
-                    </div>
-                    <div class="roi-item">
-                        <div class="roi-icon">
-                            <i class="fas fa-clock"></i>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-sms"></i>
+                            </div>
+                            <h3>SMS/Text Messaging</h3>
+                            <p>Built-in SMS capabilities for customer notifications, alerts, and two-way communication</p>
+                            <span class="status-badge">Coming GA</span>
                         </div>
-                        <h3>Increased Efficiency</h3>
-                        <p>Automation and mobile access drive 30% productivity gains</p>
-                        <span class="roi-value">+8 hours/week per tech</span>
-                    </div>
-                    <div class="roi-item">
-                        <div class="roi-icon">
-                            <i class="fas fa-users"></i>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Rev.io Community</h3>
+                            <p>Integrated community platform for user collaboration, best practices sharing, and peer support</p>
+                            <span class="status-badge">Coming GA</span>
                         </div>
-                        <h3>Better Customer Service</h3>
-                        <p>Faster response times and first-call resolution improvements</p>
-                        <span class="roi-value">28% CSAT increase</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="migration-process">
-                <h2 class="section-title">Simple Migration Path</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker">1</div>
-                        <div class="timeline-content">
-                            <h4>Discovery & Planning</h4>
-                            <p>2-3 weeks • Data assessment and migration strategy</p>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fab fa-slack"></i>
+                            </div>
+                            <h3>Slack/Teams Integration</h3>
+                            <p>Native integrations with Slack and Microsoft Teams for real-time notifications and team collaboration</p>
+                            <span class="status-badge">Coming GA</span>
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">2</div>
-                        <div class="timeline-content">
-                            <h4>Data Migration</h4>
-                            <p>3-4 weeks • Automated tools transfer your critical data</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">3</div>
-                        <div class="timeline-content">
-                            <h4>Training & Go-Live</h4>
-                            <p>1-2 weeks • Comprehensive training and support</p>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Talk to Rev.ii</h3>
+                            <p>Advanced conversational AI interface for natural language PSA operations and intelligent automation</p>
+                            <span class="status-badge">Coming GA</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="cta-section">
-                <h2>Ready to Modernize?</h2>
-                <p>Join hundreds of organizations that have successfully migrated from TigerPaw to Rev.io PSA</p>
-                <div class="cta-buttons">
-                    <button class="btn-primary" onclick="alert('Contact sales to schedule a demo')">Schedule a Demo</button>
-                    <button class="btn-secondary" onclick="alert('Download migration guide')">Download Migration Guide</button>
+                <div class="feature-category">
+                    <h2 class="category-title">On the Roadmap</h2>
+                    <p class="category-description">Planned features that will further differentiate Rev.io PSA</p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h3>Collections Management</h3>
+                            <p>Automated collections workflows with aging reports and dunning processes</p>
+                            <span class="status-badge roadmap">Roadmap</span>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-phone-volume"></i>
+                            </div>
+                            <h3>Communications Billing</h3>
+                            <p>Advanced telecom billing for VoIP, SMS, and data services with usage-based pricing</p>
+                            <span class="status-badge roadmap">Roadmap</span>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <h3>Reseller Model</h3>
+                            <p>Multi-tier reseller management with margin control and white-label capabilities</p>
+                            <span class="status-badge roadmap">Roadmap</span>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Internationalization</h3>
+                            <p>Multi-language support for global operations (English and Spanish initially)</p>
+                            <span class="status-badge roadmap">Roadmap</span>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3>Acronis RMM Integration</h3>
+                            <p>Remote monitoring and management integration for proactive service delivery</p>
+                            <span class="status-badge roadmap">Roadmap</span>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>AI-Powered Insights</h3>
+                            <p>Predictive analytics and intelligent recommendations for business optimization</p>
+                            <span class="status-badge roadmap">Roadmap</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         `,

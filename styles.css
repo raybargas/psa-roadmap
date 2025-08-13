@@ -1059,6 +1059,98 @@ body {
     padding: 0;
 }
 
+/* Features Section */
+.features-section {
+    padding: 2rem 0;
+}
+
+.feature-category {
+    margin-bottom: 3rem;
+}
+
+.category-title {
+    font-size: 1.75rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    padding-left: 2rem;
+}
+
+.category-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    font-size: 1.1rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 0 2rem;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-medium);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card.featured {
+    border: 2px solid var(--primary-blue);
+    background: linear-gradient(to bottom, rgba(36, 153, 182, 0.03), white);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--warning);
+    color: white;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.roadmap {
+    background: var(--primary-blue);
+}
+
 /* Migration Hero Section */
 .migration-hero {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
