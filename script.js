@@ -11,6 +11,25 @@ function toggleNav() {
     wrapper.classList.toggle('nav-open');
 }
 
+// Collapsible menu functionality
+function initMenuToggle() {
+    const navToggle = document.getElementById('navToggle');
+    const leftNav = document.getElementById('leftNav');
+    
+    // Load saved state from localStorage
+    const isCollapsed = localStorage.getItem('menuCollapsed') === 'true';
+    if (isCollapsed) {
+        leftNav.classList.add('collapsed');
+    }
+    
+    // Toggle menu on button click
+    navToggle.addEventListener('click', function() {
+        leftNav.classList.toggle('collapsed');
+        const collapsed = leftNav.classList.contains('collapsed');
+        localStorage.setItem('menuCollapsed', collapsed);
+    });
+}
+
 function toggleSection(header) {
     const content = header.nextElementSibling;
     const isExpanded = header.classList.contains('expanded');
@@ -1013,6 +1032,9 @@ const features = [
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize menu toggle
+    initMenuToggle();
+    
     // Set first nav item as active
     const firstNavItem = document.querySelector('.nav-item');
     if (firstNavItem) {

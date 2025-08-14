@@ -27,25 +27,28 @@
     <div class="page-layout">
         <!-- Left Navigation -->
         <nav class="left-nav" id="leftNav">
+            <button class="nav-toggle" id="navToggle" title="Toggle Menu">
+                <i class="fas fa-chevron-left"></i>
+            </button>
             <div class="nav-header">
                 <h3>Quick Links</h3>
             </div>
             <div class="nav-content">
-                <div class="nav-item" onclick="showMainContent()">
+                <div class="nav-item" onclick="showMainContent()" title="Feature Comparison">
                     <i class="fas fa-table"></i>
-                    Feature Comparison
+                    <span>Feature Comparison</span>
                 </div>
-                <div class="nav-item" onclick="loadContent('tigerpaw-migration')">
+                <div class="nav-item" onclick="loadContent('tigerpaw-migration')" title="Tigerpaw → PSA">
                     <i class="fas fa-exchange-alt"></i>
-                    Tigerpaw → PSA
+                    <span>Tigerpaw → PSA</span>
                 </div>
-                <div class="nav-item" onclick="loadContent('billing-add-psa')">
+                <div class="nav-item" onclick="loadContent('billing-add-psa')" title="Billing + PSA">
                     <i class="fas fa-plus-circle"></i>
-                    Billing + PSA
+                    <span>Billing + PSA</span>
                 </div>
-                <div class="nav-item" onclick="loadContent('linked-features')">
+                <div class="nav-item" onclick="loadContent('linked-features')" title="Linked Features">
                     <i class="fas fa-link"></i>
-                    Linked Features
+                    <span>Linked Features</span>
                 </div>
             </div>
         </nav>
