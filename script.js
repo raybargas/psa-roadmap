@@ -12,22 +12,30 @@ function toggleNav() {
 }
 
 // Collapsible menu functionality
-function initMenuToggle() {
-    const navToggle = document.getElementById('navToggle');
+function toggleMenu() {
     const leftNav = document.getElementById('leftNav');
+    const icon = document.getElementById('menuToggleIcon');
+    
+    leftNav.classList.toggle('collapsed');
+    const collapsed = leftNav.classList.contains('collapsed');
+    
+    // Rotate icon
+    icon.style.transform = collapsed ? 'rotate(180deg)' : 'rotate(0)';
+    
+    // Save state
+    localStorage.setItem('menuCollapsed', collapsed);
+}
+
+function initMenuToggle() {
+    const leftNav = document.getElementById('leftNav');
+    const icon = document.getElementById('menuToggleIcon');
     
     // Load saved state from localStorage
     const isCollapsed = localStorage.getItem('menuCollapsed') === 'true';
     if (isCollapsed) {
         leftNav.classList.add('collapsed');
+        icon.style.transform = 'rotate(180deg)';
     }
-    
-    // Toggle menu on button click
-    navToggle.addEventListener('click', function() {
-        leftNav.classList.toggle('collapsed');
-        const collapsed = leftNav.classList.contains('collapsed');
-        localStorage.setItem('menuCollapsed', collapsed);
-    });
 }
 
 function toggleSection(header) {

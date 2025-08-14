@@ -65,33 +65,8 @@ body {
     width: 50px;
 }
 
-/* Toggle Button */
-.nav-toggle {
-    position: absolute;
-    right: -18px;
-    top: 60px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--primary-blue);
-    border: 3px solid white;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
-}
-
-.nav-toggle:hover {
-    background: var(--accent-green);
-    transform: scale(1.1);
-}
-
-.left-nav.collapsed .nav-toggle i {
+/* Menu collapsed state adjustments */
+.left-nav.collapsed .nav-header i {
     transform: rotate(180deg);
 }
 
@@ -104,6 +79,13 @@ body {
     position: relative;
     z-index: 10;
     min-height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-header:hover {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #2a4a6b 100%);
 }
 
 .nav-header h3 {
