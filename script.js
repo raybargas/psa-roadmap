@@ -1067,6 +1067,20 @@ document.addEventListener('DOMContentLoaded', function() {
     updateMigrationLists();
 });
 
+// Get status badge HTML
+function getStatusBadge(status) {
+    if (status === 'Coming GA') {
+        return '<span class="status-badge in-dev"><i class="fas fa-tools"></i> In Development</span>';
+    } else if (status === 'Coming 2026') {
+        return '<span class="status-badge roadmap"><i class="fas fa-calendar-alt"></i> 2026 Roadmap</span>';
+    } else if (status === 'On Roadmap') {
+        return '<span class="status-badge roadmap"><i class="fas fa-road"></i> On Roadmap</span>';
+    } else if (status === 'Available') {
+        return '<span class="status-badge available"><i class="fas fa-check"></i> Available</span>';
+    }
+    return status;
+}
+
 // Render the comparison table
 function renderTable(data, highlightMode = false) {
     const tableBody = document.getElementById('tableBody');
@@ -1216,20 +1230,6 @@ function getMigrationBadge(migration) {
         'not-applicable': '<span class="migration-badge not-applicable">N/A</span>'
     };
     return badges[migration] || '';
-}
-
-// Get status badge HTML
-function getStatusBadge(status) {
-    if (status === 'Coming GA') {
-        return '<span class="status-badge in-dev"><i class="fas fa-tools"></i> In Development</span>';
-    } else if (status === 'Coming 2026') {
-        return '<span class="status-badge roadmap"><i class="fas fa-calendar-alt"></i> 2026 Roadmap</span>';
-    } else if (status === 'On Roadmap') {
-        return '<span class="status-badge roadmap"><i class="fas fa-road"></i> On Roadmap</span>';
-    } else if (status === 'Available') {
-        return '<span class="status-badge available"><i class="fas fa-check"></i> Available</span>';
-    }
-    return status;
 }
 
 // Update migration lists
