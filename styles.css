@@ -69,8 +69,7 @@ body {
 .nav-toggle {
     position: absolute;
     right: -18px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 60px;
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -89,7 +88,7 @@ body {
 
 .nav-toggle:hover {
     background: var(--accent-green);
-    transform: translateY(-50%) scale(1.1);
+    transform: scale(1.1);
 }
 
 .left-nav.collapsed .nav-toggle i {
