@@ -1038,6 +1038,23 @@ const features = [
     }
 ];
 
+// Get status badge HTML
+function getStatusBadge(status) {
+    if (!status) {
+        return '<span class="status-badge available"><i class="fas fa-check"></i> Available</span>';
+    }
+    if (status === 'Coming GA') {
+        return '<span class="status-badge in-dev"><i class="fas fa-tools"></i> In Development</span>';
+    } else if (status === 'Coming 2026') {
+        return '<span class="status-badge roadmap"><i class="fas fa-calendar-alt"></i> 2026 Roadmap</span>';
+    } else if (status === 'On Roadmap') {
+        return '<span class="status-badge roadmap"><i class="fas fa-road"></i> On Roadmap</span>';
+    } else if (status === 'Available') {
+        return '<span class="status-badge available"><i class="fas fa-check"></i> Available</span>';
+    }
+    return '<span class="status-badge available"><i class="fas fa-check"></i> ' + status + '</span>';
+}
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize menu toggle
@@ -1066,20 +1083,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update migration lists
     updateMigrationLists();
 });
-
-// Get status badge HTML
-function getStatusBadge(status) {
-    if (status === 'Coming GA') {
-        return '<span class="status-badge in-dev"><i class="fas fa-tools"></i> In Development</span>';
-    } else if (status === 'Coming 2026') {
-        return '<span class="status-badge roadmap"><i class="fas fa-calendar-alt"></i> 2026 Roadmap</span>';
-    } else if (status === 'On Roadmap') {
-        return '<span class="status-badge roadmap"><i class="fas fa-road"></i> On Roadmap</span>';
-    } else if (status === 'Available') {
-        return '<span class="status-badge available"><i class="fas fa-check"></i> Available</span>';
-    }
-    return status;
-}
 
 // Render the comparison table
 function renderTable(data, highlightMode = false) {
@@ -1139,7 +1142,7 @@ function renderTable(data, highlightMode = false) {
                         <div class="feature-name">
                             ${feature.description ? '<i class="fas fa-chevron-right expand-icon"></i>' : ''}
                             ${feature.name}
-                            ${feature.linked ? '<span class="linked-badge">🔗 LINKED</span>' : ''}
+                            ${feature.linked ? '<span class="linked-badge" title="Linked with Rev.io Billing">🔗</span>' : ''}
                         </div>
                     </td>
                     <td class="status-icon">${getStatusIcon(feature.revPSA, feature.status, 'psa')}</td>
@@ -1147,7 +1150,7 @@ function renderTable(data, highlightMode = false) {
                     <td class="status-icon">${getStatusIcon(feature.tigerpaw, feature.status, 'tigerpaw')}</td>
                     <td class="status-icon">${getStatusIcon(feature.portal || 'cross', feature.status, 'portal')}</td>
                     <td class="migration-col">${getMigrationBadge(feature.migration)}</td>
-                    <td class="status-col">${getStatusBadge(feature.status)}</td>
+                    <td class="status-col">${getStatusBadge(feature.status || 'Available')}</td>
                 `;
                 tableBody.appendChild(row);
                 

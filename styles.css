@@ -423,6 +423,24 @@ body {
     border-color: var(--primary-blue);
 }
 
+.search-helper {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-helper i {
+    color: var(--primary-blue);
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
 .filter-buttons {
     display: flex;
     gap: 0.5rem;
@@ -782,14 +800,16 @@ body {
 
 .linked-badge {
     display: inline-block;
-    background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
-    color: white;
-    padding: 0.2rem 0.6rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 700;
     margin-left: 0.5rem;
+    font-size: 1rem;
     vertical-align: middle;
+    cursor: help;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.linked-badge:hover {
+    opacity: 1;
 }
 
 .linked-indicator {
@@ -1192,7 +1212,7 @@ body {
     font-size: 0.95rem;
 }
 
-.status-badge {
+.feature-card .status-badge {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -1205,7 +1225,7 @@ body {
     text-transform: uppercase;
 }
 
-.status-badge.roadmap {
+.feature-card .status-badge.roadmap {
     background: var(--primary-blue);
 }
 
