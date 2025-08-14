@@ -45,6 +45,8 @@ body {
 .page-layout {
     display: flex;
     min-height: calc(100vh - 80px); /* Subtract header height */
+    position: relative;
+    overflow: visible;
 }
 
 /* Left Navigation */
@@ -66,24 +68,28 @@ body {
 /* Toggle Button */
 .nav-toggle {
     position: absolute;
-    right: -15px;
-    top: 20px;
-    width: 30px;
-    height: 30px;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background: var(--primary-dark);
-    border: 2px solid var(--gray-medium);
+    background: var(--primary-blue);
+    border: 3px solid white;
     color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100;
-    transition: transform 0.3s ease;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
 }
 
 .nav-toggle:hover {
-    background: var(--primary-blue);
+    background: var(--accent-green);
+    transform: translateY(-50%) scale(1.1);
 }
 
 .left-nav.collapsed .nav-toggle i {
