@@ -122,7 +122,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Financial period management for advanced accounting workflows"
     },
     
@@ -220,7 +220,8 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Coming GA",
+        status: "In Development",
+        delayed: true,
         description: "Service Level Agreement management with automated tracking and reporting"
     },
     
@@ -258,7 +259,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Purchase order system for vendor management and inventory procurement"
     },
     { 
@@ -270,7 +271,8 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Coming GA",
+        status: "In Development",
+        delayed: true,
         description: "Real-time inventory tracking with stock levels and reorder management"
     },
     
@@ -352,7 +354,7 @@ const featureData = [
         description: "Role-based access control (RBAC) system for granular permission management"
     },
     { 
-        name: "Workflows/Automation", 
+        name: "Custom Fields - Core", 
         category: "core",
         revPSA: "cross", 
         revBilling: "check", 
@@ -360,46 +362,8 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Coming GA",
-        description: "Workflow engine for business process automation with SMS and notification capabilities"
-    },
-    { 
-        name: "Developer Portal", 
-        category: "core",
-        revPSA: "cross", 
-        revBilling: "check", 
-        tigerpaw: "check", 
-        linked: false,
-        migration: "not-applicable",
-        portal: "cross",
-        status: "Coming GA",
-        description: "Developer resources with API documentation and integration guides"
-    },
-    { 
-        name: "Custom Fields", 
-        category: "core",
-        revPSA: "cross", 
-        revBilling: "check", 
-        tigerpaw: "check", 
-        linked: false,
-        migration: "manual",
-        portal: "cross",
-        status: "Coming GA",
-        description: "Custom fields manager for extending system objects with configurable data fields"
-    },
-    
-    // Communication
-    { 
-        name: "SMS/Text Messaging", 
-        category: "core",
-        revPSA: "cross", 
-        revBilling: "check", 
-        tigerpaw: "cross", 
-        linked: false,
-        migration: "not-applicable",
-        portal: "cross",
-        status: "Coming GA",
-        description: "Built-in SMS capabilities for customer notifications and two-way communication"
+        status: "In Development",
+        description: "Extended custom fields for all system objects with advanced configuration"
     },
     { 
         name: "Mobile App", 
@@ -434,9 +398,11 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "E-commerce platform for online ordering and customer self-service"
     },
+    
+    // General Availability items (ordered by priority)
     { 
         name: "Rev.io Community", 
         category: "core",
@@ -446,11 +412,9 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Community platform for user collaboration and knowledge sharing"
     },
-    
-    // Additional In Development items
     { 
         name: "Parent/Child Account Type", 
         category: "core",
@@ -460,8 +424,56 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Hierarchical account structure for managing parent-child customer relationships"
+    },
+    { 
+        name: "Custom Fields - Foundations", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "manual",
+        portal: "cross",
+        status: "General Availability",
+        description: "Custom fields for customer data management"
+    },
+    { 
+        name: "SMS/Text Messaging", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "cross", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "General Availability",
+        description: "Built-in SMS capabilities for customer notifications and two-way communication"
+    },
+    { 
+        name: "Workflows/Automation", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "manual",
+        portal: "cross",
+        status: "General Availability",
+        description: "Workflow engine for business process automation with SMS and notification capabilities"
+    },
+    { 
+        name: "Developer Portal", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "General Availability",
+        description: "Developer resources with API documentation and integration guides"
     },
     { 
         name: "Metered Usage", 
@@ -472,7 +484,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Usage-based billing for metered services and resource consumption tracking"
     },
     { 
@@ -484,7 +496,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Ability to modify and update services associated with existing contracts"
     },
     { 
@@ -496,7 +508,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Connect related tickets for parent-child relationships and dependency tracking"
     },
     { 
@@ -508,7 +520,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Assign multiple technicians to a single ticket for collaborative service delivery"
     },
     { 
@@ -520,7 +532,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Enable technicians to track time on multiple tickets simultaneously"
     },
     { 
@@ -532,7 +544,8 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "In Development",
+        delayed: true,
         description: "Comprehensive audit trail for security, compliance, and activity tracking"
     },
     { 
@@ -544,11 +557,11 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Visual dispatch board for technician management and resource allocation"
     },
     { 
-        name: "Tax", 
+        name: "Tax - Foundations", 
         category: "financial",
         revPSA: "cross", 
         revBilling: "check", 
@@ -556,8 +569,20 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Coming GA",
-        description: "Automated tax calculation and compliance management"
+        status: "General Availability",
+        description: "Tax processing for PSA data"
+    },
+    { 
+        name: "Tax - Core", 
+        category: "financial",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "check", 
+        linked: true,
+        migration: "automatic",
+        portal: "cross",
+        status: "In Development",
+        description: "Tax configuration and advanced compliance management"
     },
     
     // On Roadmap items
@@ -702,7 +727,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Native integrations with Slack and Microsoft Teams for notifications and collaboration"
     },
     
@@ -752,11 +777,11 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Accounting software integration for financial data synchronization"
     },
     { 
-        name: "Acronis RMM Integration", 
+        name: "RMM - Acronis Integration", 
         category: "integrations",
         revPSA: "cross", 
         revBilling: "cross", 
@@ -764,7 +789,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "In Development",
         description: "Remote monitoring and management integration for proactive service delivery"
     },
     
@@ -790,7 +815,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Coming GA",
+        status: "General Availability",
         description: "Advanced conversational AI interface for natural language PSA operations"
     },
     { 
@@ -849,11 +874,17 @@ const statusDefinitions = {
         color: '#10b981',
         description: 'Currently available in production'
     },
-    'Coming GA': {
+    'General Availability': {
+        label: 'General Availability',
+        icon: 'fas fa-rocket',
+        color: '#22c55e',
+        description: 'Releasing today - on track for general availability'
+    },
+    'In Development': {
         label: 'In Development',
         icon: 'fas fa-tools',
         color: '#f59e0b',
-        description: 'In active development, coming soon to general availability'
+        description: 'In active development'
     },
     'On Roadmap': {
         label: 'On Roadmap',

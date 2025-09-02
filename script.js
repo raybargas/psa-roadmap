@@ -335,20 +335,32 @@ function getSalesContent(contentId) {
 const features = featureData;
 
 // Get status badge HTML
-function getStatusBadge(status) {
+function getStatusBadge(status, delayed) {
     if (!status) {
         return '<span class="status-badge available"><i class="fas fa-check"></i> Available</span>';
     }
-    if (status === 'Coming GA') {
-        return '<span class="status-badge in-dev"><i class="fas fa-tools"></i> In Development</span>';
+    
+    let badgeHtml = '';
+    if (status === 'General Availability') {
+        badgeHtml = '<span class="status-badge general-availability"><i class="fas fa-rocket"></i> General Availability</span>';
+    } else if (status === 'In Development' || status === 'Coming GA') {
+        badgeHtml = '<span class="status-badge in-dev"><i class="fas fa-tools"></i> In Development</span>';
     } else if (status === 'Coming 2026') {
-        return '<span class="status-badge roadmap"><i class="fas fa-calendar-alt"></i> 2026 Roadmap</span>';
+        badgeHtml = '<span class="status-badge roadmap"><i class="fas fa-calendar-alt"></i> 2026 Roadmap</span>';
     } else if (status === 'On Roadmap') {
-        return '<span class="status-badge roadmap"><i class="fas fa-road"></i> On Roadmap</span>';
+        badgeHtml = '<span class="status-badge roadmap"><i class="fas fa-road"></i> On Roadmap</span>';
     } else if (status === 'Available') {
-        return '<span class="status-badge available"><i class="fas fa-check"></i> Available</span>';
+        badgeHtml = '<span class="status-badge available"><i class="fas fa-check"></i> Available</span>';
+    } else {
+        badgeHtml = '<span class="status-badge available"><i class="fas fa-check"></i> ' + status + '</span>';
     }
-    return '<span class="status-badge available"><i class="fas fa-check"></i> ' + status + '</span>';
+    
+    // Add delayed indicator if applicable
+    if (delayed) {
+        badgeHtml += ' <span class="delayed-indicator" title="Missed GA target"><i class="fas fa-exclamation-triangle"></i></span>';
+    }
+    
+    return badgeHtml;
 }
 
 // Initialize the page
@@ -446,7 +458,7 @@ function renderTable(data, highlightMode = false) {
                     <td class="status-icon">${getStatusIcon(feature.tigerpaw, feature.status, 'tigerpaw')}</td>
                     <td class="status-icon">${getStatusIcon(feature.portal || 'cross', feature.status, 'portal')}</td>
                     <td class="migration-col">${getMigrationBadge(feature.migration)}</td>
-                    <td class="status-col">${getStatusBadge(feature.status || 'Available')}</td>
+                    <td class="status-col">${getStatusBadge(feature.status || 'Available', feature.delayed)}</td>
                 `;
                 tableBody.appendChild(row);
                 
@@ -505,8 +517,10 @@ function getCategoryName(category) {
 function getStatusIcon(status, featureStatus, columnName) {
     // Only show development icons for PSA column, never for Tigerpaw
     if (columnName === 'psa' && status === 'cross' && featureStatus) {
-        if (featureStatus === 'Coming GA') {
-            return '<i class="fas fa-tools in-dev" title="In Development - Coming GA"></i>';
+        if (featureStatus === 'General Availability') {
+            return '<i class="fas fa-rocket general-availability" title="General Availability"></i>';
+        } else if (featureStatus === 'In Development' || featureStatus === 'Coming GA') {
+            return '<i class="fas fa-tools in-dev" title="In Development"></i>';
         } else if (featureStatus === 'On Roadmap') {
             return '<i class="fas fa-road roadmap" title="On Roadmap"></i>';
         } else if (featureStatus === 'Coming 2026') {
@@ -716,9 +730,14 @@ function setupEventListeners() {
                     filtered = features.filter(f => f.status === 'Available');
                     renderTable(filtered, false);
                     break;
+                case 'general-availability':
+                    // Show only features with status "General Availability"
+                    filtered = features.filter(f => f.status === 'General Availability');
+                    renderTable(filtered, false);
+                    break;
                 case 'in-development':
-                    // Show only features with status "Coming GA" (in development)
-                    filtered = features.filter(f => f.status === 'Coming GA');
+                    // Show only features with status "In Development" or "Coming GA" (legacy)
+                    filtered = features.filter(f => f.status === 'In Development' || f.status === 'Coming GA');
                     renderTable(filtered, false);
                     break;
                 case 'on-roadmap':

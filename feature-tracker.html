@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Development Tracker | Rev.io</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            min-height: 100vh;
+            color: #e0e6ed;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-title {
+            background: #1a1f2e;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            border: 1px solid #2d3748;
+        }
+
+        .page-title h1 {
+            color: #5ad1f2;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            color: #a0aec0;
+            font-size: 1.1rem;
+        }
+
+        .controls-section {
+            background: #1a1f2e;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            border: 1px solid #2d3748;
+        }
+
+        .controls-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6b7280;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 2px solid #2d3748;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #0f1419;
+            color: #e0e6ed;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #5ad1f2;
+            box-shadow: 0 0 0 3px rgba(90, 209, 242, 0.1);
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.25rem;
+            background: #2d3748;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #a0aec0;
+        }
+
+        .filter-btn:hover {
+            background: #374151;
+        }
+
+        .filter-btn.active {
+            background: #5ad1f2;
+            color: white;
+            border-color: #5ad1f2;
+        }
+
+        .add-btn {
+            padding: 0.75rem 1.5rem;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #059669;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .save-btn {
+            padding: 0.75rem 1.5rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .save-btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .table-container {
+            background: #1a1f2e;
+            border-radius: 12px;
+            overflow-x: auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            border: 1px solid #2d3748;
+        }
+
+        .feature-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .feature-table thead {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+        }
+
+        .feature-table th {
+            padding: 1.25rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-table tbody tr {
+            border-bottom: 1px solid #2d3748;
+            transition: all 0.2s;
+            cursor: move;
+        }
+
+        .feature-table tbody tr:hover {
+            background: #252d3d;
+        }
+
+        .feature-table tbody tr.dragging {
+            opacity: 0.5;
+            background: #374151;
+        }
+
+        .feature-table tbody tr.drag-over {
+            background: #374151;
+            border-top: 3px solid #5ad1f2;
+        }
+
+        .feature-table td {
+            padding: 1.25rem 1rem;
+            font-size: 0.95rem;
+            color: #e0e6ed;
+        }
+
+        .drag-handle {
+            cursor: move;
+            color: #6b7280;
+            padding-right: 0.5rem;
+        }
+
+        .drag-handle:hover {
+            color: #5ad1f2;
+        }
+
+        .item-number {
+            font-weight: 600;
+            color: #5ad1f2;
+        }
+
+        .feature-name {
+            font-weight: 500;
+            color: #f7fafc;
+        }
+
+        .feature-description {
+            color: #a0aec0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .check-icon {
+            color: #10b981;
+            font-size: 1.25rem;
+        }
+
+        .no-check {
+            color: #4a5568;
+            font-size: 1.25rem;
+        }
+
+        .facing-cell {
+            text-align: center;
+        }
+
+        .prfaq-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prfaq-yes {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .prfaq-no {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .prfaq-in-progress {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #1a1f2e;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            border: 1px solid #2d3748;
+        }
+
+        .stat-label {
+            color: #a0aec0;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #5ad1f2;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #6b7280;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: #d1d5db;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://www.rev.io/hs-fs/hubfs/Theme%2c%20Identity%2c%20Brand%2c%20Internal%202024/Rev.io%20Brand%20Resources/Rev.io%20Logos%20and%20Glyphs/logo-revio-white.png?width=250&height=65&name=logo-revio-white.png" 
+                         alt="Rev.io" 
+                         class="logo-img">
+                    <span class="tagline">Feature Development Tracker</span>
+                </div>
+                <div class="last-updated">
+                    <span>Last Updated: <span id="lastUpdated"></span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="page-title">
+            <h1>PSA Feature Development Tracker</h1>
+            <p class="page-subtitle">Track feature development progress and PRFAQ status</p>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-label">Total Features</div>
+                <div class="stat-value" id="totalFeatures">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">PRFAQs Complete</div>
+                <div class="stat-value" id="prfaqComplete">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Internal Features</div>
+                <div class="stat-value" id="internalFeatures">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">External Features</div>
+                <div class="stat-value" id="externalFeatures">0</div>
+            </div>
+        </div>
+
+        <div class="controls-section">
+            <div class="controls-row">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search features...">
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="internal">Internal Only</button>
+                    <button class="filter-btn" data-filter="external">External Only</button>
+                    <button class="filter-btn" data-filter="both">Both</button>
+                </div>
+                <button class="save-btn" onclick="saveOrder()">
+                    <i class="fas fa-save"></i>
+                    Save Order
+                </button>
+                <button class="add-btn" onclick="addNewFeature()">
+                    <i class="fas fa-plus"></i>
+                    Add Feature
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Feature</th>
+                        <th style="width: 40%;">Description</th>
+                        <th style="width: 10%;">Internal</th>
+                        <th style="width: 10%;">External</th>
+                        <th style="width: 10%;">PRFAQ Completed</th>
+                    </tr>
+                </thead>
+                <tbody id="featureTableBody">
+                    <!-- Table content will be generated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Feature data will be loaded from external file
+        let features = [];
+        let dataFilePath = './features-data.json';
+
+        // Load features from JSON file
+        async function loadFeaturesData() {
+            try {
+                const response = await fetch(dataFilePath);
+                const data = await response.json();
+                features = data.features;
+                
+                // Apply saved order from localStorage if it exists
+                loadSavedOrder();
+                
+                // Initial render
+                renderTable();
+                
+                // Update last updated date
+                document.getElementById('lastUpdated').textContent = data.lastUpdated || new Date().toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+            } catch (error) {
+                console.error('Error loading features data:', error);
+                // Fallback to embedded data if file can't be loaded
+                features = [
+            {
+                id: 1,
+                name: "Project Management",
+                description: "Comprehensive project management capabilities",
+                internal: true,
+                external: true,
+                prfaqStatus: "not-started"
+            },
+            {
+                id: 2,
+                name: "Onboarding AI Agent",
+                description: "AI-powered onboarding assistant",
+                internal: true,
+                external: true,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 3,
+                name: "Mobile App",
+                description: "Native mobile application for iOS and Android",
+                internal: false,
+                external: true,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 4,
+                name: "CommerceHub Phase 2",
+                description: "Procurement and payment processing for purchases made through Commerce Hub",
+                internal: true,
+                external: true,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 5,
+                name: "Commissioning and Agents",
+                description: "Commission tracking and agent management",
+                internal: true,
+                external: false,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 6,
+                name: "Video Avatar for Ask Rev.io",
+                description: "AI video avatar for customer support",
+                internal: false,
+                external: true,
+                prfaqStatus: "not-started"
+            },
+            {
+                id: 7,
+                name: "Universal Search",
+                description: "Global search across all platform data",
+                internal: true,
+                external: true,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 8,
+                name: "Sales Opportunity Management",
+                description: "CRM and sales pipeline management",
+                internal: true,
+                external: true,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 9,
+                name: "Importer Modernization Tool",
+                description: "Updated data import and migration tools",
+                internal: true,
+                external: false,
+                prfaqStatus: "in-progress"
+            },
+            {
+                id: 10,
+                name: "Workflows & Notifications",
+                description: "Automated workflows and notification system",
+                internal: true,
+                external: true,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 11,
+                name: "Data Migrations",
+                description: "Tools for migrating data between systems",
+                internal: true,
+                external: false,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 12,
+                name: "Orders",
+                description: "Order management and processing",
+                internal: true,
+                external: true,
+                prfaqStatus: "not-started"
+            },
+            {
+                id: 13,
+                name: "Visualization Framework: Workflows, Inventory, Mind-maps",
+                description: "Visual tools for workflows and data",
+                internal: true,
+                external: true,
+                prfaqStatus: "not-started"
+            },
+            {
+                id: 14,
+                name: "Template Customization for Invoices - Pandadoc-ish",
+                description: "Advanced invoice template customization",
+                internal: true,
+                external: true,
+                prfaqStatus: "not-started"
+            },
+            {
+                id: 15,
+                name: "Ability to Save Per-User Templates in List Views",
+                description: "Personalized list view configurations",
+                internal: true,
+                external: true,
+                prfaqStatus: "not-started"
+            },
+            {
+                id: 16,
+                name: "Metered Usage: Rate Anything (RMM endpoints, backup GB, etc.)",
+                description: "Flexible metered billing for any resource",
+                internal: true,
+                external: true,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 17,
+                name: "Reseller Framework",
+                description: "Complete reseller management platform",
+                internal: true,
+                external: true,
+                prfaqStatus: "complete"
+            },
+            {
+                id: 18,
+                name: "AI Agents for T1 Support (Billing, PSAweb, Odin)",
+                description: "AI-powered tier 1 support automation",
+                internal: true,
+                external: false,
+                prfaqStatus: "not-started"
+            }
+        ];
+                renderTable();
+            }
+        }
+
+        // Save features data back to JSON file (requires server-side implementation)
+        async function saveFeaturesData() {
+            // Update order property for each feature
+            const rows = document.querySelectorAll('#featureTableBody tr');
+            rows.forEach((row, index) => {
+                const featureId = parseInt(row.dataset.featureId);
+                const feature = features.find(f => f.id === featureId);
+                if (feature) {
+                    feature.order = index + 1;
+                }
+            });
+
+            // Sort features by order
+            features.sort((a, b) => (a.order || 999) - (b.order || 999));
+
+            // Save to localStorage as backup
+            localStorage.setItem('featuresBackup', JSON.stringify({
+                features: features,
+                lastUpdated: new Date().toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                })
+            }));
+
+            // Show save confirmation
+            const saveBtn = document.querySelector('.save-btn');
+            const originalText = saveBtn.innerHTML;
+            saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved!';
+            saveBtn.style.background = '#10b981';
+            setTimeout(() => {
+                saveBtn.innerHTML = originalText;
+                saveBtn.style.background = '';
+            }, 2000);
+
+            // Note: To actually save to the JSON file, you would need a server-side endpoint
+            console.log('Features data saved to localStorage. Server-side save would be needed for file persistence.');
+        }
+
+        // Load saved order from localStorage
+        function loadSavedOrder() {
+            // First try to load from backup
+            const savedBackup = localStorage.getItem('featuresBackup');
+            if (savedBackup) {
+                try {
+                    const backupData = JSON.parse(savedBackup);
+                    // Merge backup order with loaded features
+                    const orderMap = {};
+                    backupData.features.forEach(f => {
+                        orderMap[f.id] = f.order;
+                    });
+                    
+                    // Also preserve PRFAQ statuses from backup
+                    const statusMap = {};
+                    backupData.features.forEach(f => {
+                        statusMap[f.id] = f.prfaqStatus;
+                    });
+                    
+                    features.forEach(feature => {
+                        if (orderMap[feature.id]) {
+                            feature.order = orderMap[feature.id];
+                        }
+                        if (statusMap[feature.id]) {
+                            feature.prfaqStatus = statusMap[feature.id];
+                        }
+                    });
+                    
+                    // Sort by order
+                    features.sort((a, b) => (a.order || 999) - (b.order || 999));
+                } catch (e) {
+                    console.error('Error loading backup data:', e);
+                }
+            }
+        }
+
+        // Save current order
+        function saveOrder() {
+            saveFeaturesData();
+        }
+
+        // Render table
+        function renderTable(filteredFeatures = features) {
+            const tbody = document.getElementById('featureTableBody');
+            tbody.innerHTML = '';
+
+            filteredFeatures.forEach((feature, index) => {
+                const row = document.createElement('tr');
+                row.dataset.featureId = feature.id;
+                row.draggable = true;
+                
+                const isChecked = feature.prfaqStatus === 'complete' ? 'checked' : '';
+
+                row.innerHTML = `
+                    <td class="feature-name">
+                        <span class="drag-handle"><i class="fas fa-grip-vertical"></i></span>
+                        ${feature.name}
+                    </td>
+                    <td class="feature-description">${feature.description}</td>
+                    <td class="facing-cell">
+                        ${feature.internal ? '<i class="fas fa-check check-icon"></i>' : '<i class="fas fa-minus no-check"></i>'}
+                    </td>
+                    <td class="facing-cell">
+                        ${feature.external ? '<i class="fas fa-check check-icon"></i>' : '<i class="fas fa-minus no-check"></i>'}
+                    </td>
+                    <td class="facing-cell">
+                        <input type="checkbox" class="prfaq-checkbox" data-feature-id="${feature.id}" ${isChecked} onchange="updatePrfaqStatus(${feature.id}, this.checked)" style="width: 20px; height: 20px; cursor: pointer;">
+                    </td>
+                `;
+
+                tbody.appendChild(row);
+            });
+
+            // Add drag and drop event listeners
+            addDragEventListeners();
+            updateStats();
+        }
+
+        // Drag and drop functionality
+        let draggedElement = null;
+
+        function addDragEventListeners() {
+            const rows = document.querySelectorAll('#featureTableBody tr');
+            
+            rows.forEach(row => {
+                row.addEventListener('dragstart', handleDragStart);
+                row.addEventListener('dragend', handleDragEnd);
+                row.addEventListener('dragover', handleDragOver);
+                row.addEventListener('drop', handleDrop);
+                row.addEventListener('dragleave', handleDragLeave);
+            });
+        }
+
+        function handleDragStart(e) {
+            draggedElement = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', this.innerHTML);
+        }
+
+        function handleDragEnd(e) {
+            this.classList.remove('dragging');
+            
+            // Remove all drag-over classes
+            const rows = document.querySelectorAll('#featureTableBody tr');
+            rows.forEach(row => row.classList.remove('drag-over'));
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            
+            e.dataTransfer.dropEffect = 'move';
+            
+            const afterElement = getDragAfterElement(e.clientY);
+            const tbody = document.getElementById('featureTableBody');
+            
+            // Remove all drag-over classes first
+            const rows = document.querySelectorAll('#featureTableBody tr');
+            rows.forEach(row => row.classList.remove('drag-over'));
+            
+            if (afterElement == null) {
+                tbody.appendChild(draggedElement);
+            } else {
+                tbody.insertBefore(draggedElement, afterElement);
+                afterElement.classList.add('drag-over');
+            }
+            
+            return false;
+        }
+
+        function handleDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+            
+            // Update row numbers after drop
+            updateRowNumbers();
+            
+            return false;
+        }
+
+        function handleDragLeave(e) {
+            this.classList.remove('drag-over');
+        }
+
+        function getDragAfterElement(y) {
+            const draggableElements = [...document.querySelectorAll('#featureTableBody tr:not(.dragging)')];
+            
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        function updateRowNumbers() {
+            // No longer needed since we removed item numbers
+        }
+
+        // Update statistics
+        function updateStats() {
+            const rows = document.querySelectorAll('#featureTableBody tr:not([style*="display: none"])');
+            let prfaqComplete = 0;
+            let internalCount = 0;
+            let externalCount = 0;
+
+            rows.forEach(row => {
+                const featureId = parseInt(row.dataset.featureId);
+                const feature = features.find(f => f.id === featureId);
+                
+                if (feature.prfaqStatus === 'complete') prfaqComplete++;
+                if (feature.internal) internalCount++;
+                if (feature.external) externalCount++;
+            });
+
+            document.getElementById('totalFeatures').textContent = rows.length;
+            document.getElementById('prfaqComplete').textContent = prfaqComplete;
+            document.getElementById('internalFeatures').textContent = internalCount;
+            document.getElementById('externalFeatures').textContent = externalCount;
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#featureTableBody tr');
+            
+            rows.forEach(row => {
+                const featureName = row.querySelector('.feature-name').textContent.toLowerCase();
+                const description = row.querySelector('.feature-description').textContent.toLowerCase();
+                const matches = featureName.includes(searchTerm) || description.includes(searchTerm);
+                row.style.display = matches ? '' : 'none';
+            });
+            
+            updateStats();
+        });
+
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                
+                let filteredFeatures = features;
+                if (filter === 'internal') {
+                    filteredFeatures = features.filter(f => f.internal && !f.external);
+                } else if (filter === 'external') {
+                    filteredFeatures = features.filter(f => f.external && !f.internal);
+                } else if (filter === 'both') {
+                    filteredFeatures = features.filter(f => f.internal && f.external);
+                }
+                
+                renderTable(filteredFeatures);
+            });
+        });
+
+        // Update PRFAQ status function
+        function updatePrfaqStatus(featureId, isChecked) {
+            const feature = features.find(f => f.id === featureId);
+            if (feature) {
+                feature.prfaqStatus = isChecked ? 'complete' : 'not-started';
+                updateStats();
+                // Save to localStorage backup
+                saveFeaturesData();
+            }
+        }
+
+        // Add new feature function
+        function addNewFeature() {
+            const maxId = Math.max(...features.map(f => f.id), 0);
+            const newFeature = {
+                id: maxId + 1,
+                name: prompt('Feature name:'),
+                description: prompt('Feature description:'),
+                internal: confirm('Is this an internal feature?'),
+                external: confirm('Is this an external feature?'),
+                prfaqStatus: 'not-started',
+                order: features.length + 1
+            };
+            
+            if (newFeature.name) {
+                features.push(newFeature);
+                renderTable();
+                saveFeaturesData();
+            }
+        }
+
+        // Initialize last updated date
+        document.getElementById('lastUpdated').textContent = new Date().toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+
+        // Initialize on page load
+        loadFeaturesData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+{
+  "features": [
+    {
+      "id": 1,
+      "name": "Project Management",
+      "description": "Comprehensive project management capabilities",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "not-started",
+      "order": 1
+    },
+    {
+      "id": 2,
+      "name": "Onboarding AI Agent",
+      "description": "AI-powered onboarding assistant",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "complete",
+      "order": 2
+    },
+    {
+      "id": 3,
+      "name": "Mobile App",
+      "description": "Native mobile application for iOS and Android",
+      "internal": false,
+      "external": true,
+      "prfaqStatus": "complete",
+      "order": 3
+    },
+    {
+      "id": 4,
+      "name": "CommerceHub Phase 2",
+      "description": "Procurement and payment processing for purchases made through Commerce Hub",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "complete",
+      "order": 4
+    },
+    {
+      "id": 5,
+      "name": "Commissioning and Agents",
+      "description": "Commission tracking and agent management",
+      "internal": true,
+      "external": false,
+      "prfaqStatus": "complete",
+      "order": 5
+    },
+    {
+      "id": 6,
+      "name": "Video Avatar for Ask Rev.io",
+      "description": "AI video avatar for customer support",
+      "internal": false,
+      "external": true,
+      "prfaqStatus": "not-started",
+      "order": 6
+    },
+    {
+      "id": 7,
+      "name": "Universal Search",
+      "description": "Global search across all platform data",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "complete",
+      "order": 7
+    },
+    {
+      "id": 8,
+      "name": "Sales Opportunity Management",
+      "description": "CRM and sales pipeline management",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "complete",
+      "order": 8
+    },
+    {
+      "id": 9,
+      "name": "Importer Modernization Tool",
+      "description": "Updated data import and migration tools",
+      "internal": true,
+      "external": false,
+      "prfaqStatus": "in-progress",
+      "order": 9
+    },
+    {
+      "id": 10,
+      "name": "Workflows & Notifications",
+      "description": "Automated workflows and notification system",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "complete",
+      "order": 10
+    },
+    {
+      "id": 11,
+      "name": "Data Migrations",
+      "description": "Tools for migrating data between systems",
+      "internal": true,
+      "external": false,
+      "prfaqStatus": "complete",
+      "order": 11
+    },
+    {
+      "id": 12,
+      "name": "Orders",
+      "description": "Order management and processing",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "not-started",
+      "order": 12
+    },
+    {
+      "id": 13,
+      "name": "Visualization Framework: Workflows, Inventory, Mind-maps",
+      "description": "Visual tools for workflows and data",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "not-started",
+      "order": 13
+    },
+    {
+      "id": 14,
+      "name": "Template Customization for Invoices - Pandadoc-ish",
+      "description": "Advanced invoice template customization",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "not-started",
+      "order": 14
+    },
+    {
+      "id": 15,
+      "name": "Ability to Save Per-User Templates in List Views",
+      "description": "Personalized list view configurations",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "not-started",
+      "order": 15
+    },
+    {
+      "id": 16,
+      "name": "Metered Usage: Rate Anything (RMM endpoints, backup GB, etc.)",
+      "description": "Flexible metered billing for any resource",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "complete",
+      "order": 16
+    },
+    {
+      "id": 17,
+      "name": "Reseller Framework",
+      "description": "Complete reseller management platform",
+      "internal": true,
+      "external": true,
+      "prfaqStatus": "complete",
+      "order": 17
+    },
+    {
+      "id": 18,
+      "name": "AI Agents for T1 Support (Billing, PSAweb, Odin)",
+      "description": "AI-powered tier 1 support automation",
+      "internal": true,
+      "external": false,
+      "prfaqStatus": "not-started",
+      "order": 18
+    }
+  ],
+  "lastUpdated": "2024-12-20"
+}
