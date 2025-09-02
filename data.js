@@ -512,6 +512,18 @@ const featureData = [
         description: "Connect related tickets for parent-child relationships and dependency tracking"
     },
     { 
+        name: "Ticket Macros", 
+        category: "service",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "General Availability",
+        description: "Ticket templates for standardized issue creation and response workflows"
+    },
+    { 
         name: "Multiple Techs per Ticket", 
         category: "service",
         revPSA: "cross", 
