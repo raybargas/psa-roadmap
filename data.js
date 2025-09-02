@@ -452,6 +452,78 @@ const featureData = [
     
     // Additional In Development items
     { 
+        name: "Parent/Child Account Type", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "Coming GA",
+        description: "Hierarchical account structure for managing parent-child customer relationships"
+    },
+    { 
+        name: "Metered Usage", 
+        category: "financial",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "cross", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "Coming GA",
+        description: "Usage-based billing for metered services and resource consumption tracking"
+    },
+    { 
+        name: "Edit Services tied to Contracts", 
+        category: "service",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "Coming GA",
+        description: "Ability to modify and update services associated with existing contracts"
+    },
+    { 
+        name: "Linked Tickets", 
+        category: "service",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "Coming GA",
+        description: "Connect related tickets for parent-child relationships and dependency tracking"
+    },
+    { 
+        name: "Multiple Techs per Ticket", 
+        category: "service",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "Coming GA",
+        description: "Assign multiple technicians to a single ticket for collaborative service delivery"
+    },
+    { 
+        name: "Concurrent Ticket Timers per Tech", 
+        category: "service",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "Coming GA",
+        description: "Enable technicians to track time on multiple tickets simultaneously"
+    },
+    { 
         name: "Audit Logging", 
         category: "core",
         revPSA: "cross", 
