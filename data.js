@@ -570,7 +570,7 @@ const featureData = [
         migration: "automatic",
         portal: "cross",
         status: "General Availability",
-        description: "Tax processing for PSA data"
+        description: "Sales and Use tax calculation works in production through Billing integration. Setup and tax mapping currently managed in Billing with Ceretax requiring manual tax class mapping"
     },
     { 
         name: "Tax - Core", 
@@ -582,7 +582,7 @@ const featureData = [
         migration: "automatic",
         portal: "cross",
         status: "In Development",
-        description: "Tax configuration and advanced compliance management"
+        description: "PSA-native tax configuration interface, simplified tax class mapping, and AI-powered automated tax classification to reduce manual setup requirements"
     },
     
     // On Roadmap items
