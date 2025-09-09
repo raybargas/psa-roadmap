@@ -366,7 +366,7 @@ const featureData = [
         description: "Extended custom fields for all system objects with advanced configuration"
     },
     { 
-        name: "Mobile App", 
+        name: "PSA Mobile App", 
         category: "core",
         revPSA: "cross", 
         revBilling: "cross", 
