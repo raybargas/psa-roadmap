@@ -841,6 +841,158 @@ const featureData = [
         portal: "cross",
         status: "On Roadmap",
         description: "Predictive analytics and intelligent recommendations powered by machine learning"
+    },
+
+    // New Features - Client Onboarding & Setup
+    { 
+        name: "Onboarding Automation", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "cross", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Streamlined customer onboarding workflows with automated setup and configuration"
+    },
+    { 
+        name: "Data Migration Tools", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "cross", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Advanced data migration utilities for seamless platform transitions and data imports"
+    },
+
+    // New Features - Billing & Financial
+    { 
+        name: "Invoice Template Customization", 
+        category: "financial",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "check", 
+        linked: true,
+        migration: "automatic",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Customizable invoice templates with branding, layout options, and field configuration"
+    },
+    { 
+        name: "Non-Voice Metered Usage", 
+        category: "financial",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "cross", 
+        linked: true,
+        migration: "automatic",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Usage-based billing for non-voice services including data, SMS, and digital services"
+    },
+
+    // New Features - System Enhancement
+    { 
+        name: "Enhanced List Views", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Advanced list view functionality with custom columns, sorting, and filtering options"
+    },
+    { 
+        name: "Process Automation", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "check", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "manual",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Business process automation tools for workflow optimization and operational efficiency"
+    },
+    { 
+        name: "Multi-Location Email Management", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "manual",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Support for multiple POP3 email accounts across different business locations"
+    },
+
+    // New Features - Integrations & Platform
+    { 
+        name: "Rev.io MCP", 
+        category: "integrations",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "cross", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Rev.io Model Context Protocol integration for enhanced AI and automation capabilities"
+    },
+    { 
+        name: "Central Station Integrations", 
+        category: "integrations",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "manual",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Direct integrations with central monitoring stations for security and alarm management"
+    },
+    { 
+        name: "Portal.io Integration", 
+        category: "integrations",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "cross", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Integration with Portal.io platform for enhanced customer portal capabilities"
+    },
+    { 
+        name: "D-Tools Integration", 
+        category: "integrations",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "check", 
+        linked: false,
+        migration: "manual",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Direct integration with D-Tools for system design and documentation management"
+    },
+    { 
+        name: "Importer Modernization", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "cross", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "On Roadmap",
+        description: "Enhanced data import capabilities with modern file formats and validation tools"
     }
 ];
 
