@@ -350,7 +350,7 @@ function getStatusBadge(status, delayed) {
     } else if (status === 'On Roadmap') {
         badgeHtml = '<span class="status-badge roadmap"><i class="fas fa-road"></i> On Roadmap</span>';
     } else if (status === 'Available') {
-        badgeHtml = '<span class="status-badge available"><i class="fas fa-check"></i> Available</span>';
+        badgeHtml = '<span class="status-badge general-availability"><i class="fas fa-rocket"></i> General Availability</span>';
     } else {
         badgeHtml = '<span class="status-badge available"><i class="fas fa-check"></i> ' + status + '</span>';
     }
@@ -401,7 +401,7 @@ function renderTable(data, highlightMode = false) {
         // Show a message when no features match the filter
         const messageRow = document.createElement('tr');
         messageRow.innerHTML = `
-            <td colspan="7" style="text-align: center; padding: 2rem; color: #666;">
+            <td colspan="6" style="text-align: center; padding: 2rem; color: #666;">
                 No features match the selected filter criteria.
             </td>
         `;
@@ -422,7 +422,7 @@ function renderTable(data, highlightMode = false) {
             const headerRow = document.createElement('tr');
             headerRow.className = 'feature-group';
             headerRow.innerHTML = `
-                <td colspan="7">${getCategoryName(category)}</td>
+                <td colspan="6">${getCategoryName(category)}</td>
             `;
             tableBody.appendChild(headerRow);
             
@@ -456,7 +456,7 @@ function renderTable(data, highlightMode = false) {
                     <td class="status-icon">${getStatusIcon(feature.revPSA, feature.status, 'psa')}</td>
                     <td class="status-icon">${getStatusIcon(feature.revBilling, feature.status, 'billing')}</td>
                     <td class="status-icon">${getStatusIcon(feature.tigerpaw, feature.status, 'tigerpaw')}</td>
-                    <td class="status-icon">${getStatusIcon(feature.portal || 'cross', feature.status, 'portal')}</td>
+                    <!-- <td class="status-icon">${getStatusIcon(feature.portal || 'cross', feature.status, 'portal')}</td> -->
                     <td class="migration-col">${getMigrationBadge(feature.migration)}</td>
                     <td class="status-col">${getStatusBadge(feature.status || 'Available', feature.delayed)}</td>
                 `;
@@ -468,7 +468,7 @@ function renderTable(data, highlightMode = false) {
                     detailRow.className = 'detail-row';
                     detailRow.style.display = 'none';
                     detailRow.innerHTML = `
-                        <td colspan="7">
+                        <td colspan="6">
                             <div class="detail-content">
                                 <div class="detail-description">
                                     <i class="fas fa-lightbulb"></i>
@@ -724,11 +724,6 @@ function setupEventListeners() {
             switch(filter) {
                 case 'all':
                     renderTable(features, false);
-                    break;
-                case 'available':
-                    // Show only features with status "Available"
-                    filtered = features.filter(f => f.status === 'Available');
-                    renderTable(filtered, false);
                     break;
                 case 'general-availability':
                     // Show only features with status "General Availability"

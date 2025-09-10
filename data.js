@@ -12,7 +12,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Centralized customer records with contact information, service history, and billing details"
     },
     { 
@@ -24,7 +24,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Comprehensive contact profiles with communication tracking and customer relationships"
     },
     { 
@@ -36,7 +36,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Self-service portal for customers to access tickets, invoices, and account information"
     },
     { 
@@ -48,7 +48,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Communication tracking system for customer interactions and internal notes"
     },
     
@@ -62,7 +62,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Invoice management with email delivery and automated billing workflows"
     },
     { 
@@ -74,7 +74,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "check",
-        status: "Available",
+        status: "General Availability",
         description: "Payment processing with credit card and ACH support, accessible via customer portal"
     },
     { 
@@ -86,7 +86,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Advanced billing profile management for complex billing scenarios"
     },
     { 
@@ -98,7 +98,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "check",
-        status: "Available",
+        status: "General Availability",
         description: "Comprehensive charge tracking system with automated billing workflows"
     },
     { 
@@ -110,7 +110,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "check",
-        status: "Available",
+        status: "General Availability",
         description: "Complete payment history and transaction records"
     },
     { 
@@ -136,7 +136,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "check",
-        status: "Available",
+        status: "General Availability",
         description: "Service ticket management with customer portal access for ticket submission and tracking"
     },
     { 
@@ -148,7 +148,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Timesheet management with billable vs. actual time tracking for technicians"
     },
     { 
@@ -160,7 +160,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Parts and labor tracking for service tickets with cost and pricing management"
     },
     { 
@@ -172,7 +172,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Calendar system for scheduling appointments, tasks, and resource management"
     },
     { 
@@ -184,7 +184,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Scheduling system with business hours configuration and technician availability"
     },
     { 
@@ -196,7 +196,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Contract management with rates, billing parameters, and documentation tracking"
     },
     { 
@@ -208,7 +208,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Managed service agreements with MRR/ARR tracking and automated billing"
     },
     { 
@@ -235,7 +235,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Asset management and tracking for customer equipment and configurations"
     },
     { 
@@ -247,7 +247,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Comprehensive product catalog with pricing, cost tracking, and provider management"
     },
     { 
@@ -286,7 +286,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Quote generation and management system for customer proposals"
     },
     { 
@@ -298,7 +298,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Reusable quote templates for standardized pricing and proposals"
     },
     
@@ -312,7 +312,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Configurable analytics dashboard with business intelligence and performance metrics"
     },
     { 
@@ -324,7 +324,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Advanced analytics with OpenTelemetry instrumentation for monitoring and insights"
     },
     
@@ -338,7 +338,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "User account management with groups and API key management for developers"
     },
     { 
@@ -350,7 +350,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Role-based access control (RBAC) system for granular permission management"
     },
     { 
@@ -753,7 +753,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Email integration for ticket creation and customer communication tracking"
     },
     { 
@@ -765,7 +765,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Google Calendar and productivity tools integration for scheduling and collaboration"
     },
     { 
@@ -777,7 +777,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Direct integration with PAX8 marketplace for automated provisioning and management"
     },
     { 
@@ -815,7 +815,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "Available",
+        status: "General Availability",
         description: "Conversational AI assistant with context-aware prompts for automated PSA tasks"
     },
     { 
