@@ -40,6 +40,18 @@ const featureData = [
         description: "Self-service portal for customers to access tickets, invoices, and account information"
     },
     { 
+        name: "Enhanced Customer Portal", 
+        category: "core",
+        revPSA: "cross", 
+        revBilling: "cross", 
+        tigerpaw: "cross", 
+        linked: false,
+        migration: "not-applicable",
+        portal: "cross",
+        status: "Q4 2025",
+        description: "Advanced customer portal with enhanced self-service capabilities, improved UI/UX, and extended functionality"
+    },
+    { 
         name: "Customer Notes/Journal", 
         category: "core",
         revPSA: "check", 
@@ -374,7 +386,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Native mobile applications for iOS and Android with offline capabilities"
     },
     { 
@@ -386,7 +398,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q4 2025",
         description: "Full project management suite with Gantt charts and resource planning"
     },
     { 
@@ -607,7 +619,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Customer-facing knowledge base for self-service support"
     },
     { 
@@ -619,7 +631,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Commission tracking and management for sales agents"
     },
     { 
@@ -631,7 +643,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "CRM-style sales pipeline with opportunity tracking"
     },
     { 
@@ -643,7 +655,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Automated collections workflows with aging reports and dunning processes"
     },
     { 
@@ -655,7 +667,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Advanced telecommunications billing including VoIP, SMS, and data services"
     },
     { 
@@ -667,7 +679,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Bundle and package management with quantity-based pricing"
     },
     { 
@@ -679,7 +691,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q4 2025",
         description: "Order management system for product fulfillment"
     },
     { 
@@ -691,7 +703,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Multi-tier reseller management with margin control and white-label capabilities"
     },
     { 
@@ -703,7 +715,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q4 2025",
         description: "Unified search across all system objects and data"
     },
     { 
@@ -715,7 +727,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Marketing automation with campaign management and lead tracking"
     },
     { 
@@ -727,7 +739,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Multi-language support for global operations (English and Spanish initially)"
     },
     { 
@@ -839,7 +851,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Predictive analytics and intelligent recommendations powered by machine learning"
     },
 
@@ -853,7 +865,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q4 2025",
         description: "Streamlined customer onboarding workflows with automated setup and configuration"
     },
     { 
@@ -865,7 +877,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q4 2025",
         description: "Advanced data migration utilities for seamless platform transitions and data imports"
     },
 
@@ -879,7 +891,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q4 2025",
         description: "Customizable invoice templates with branding, layout options, and field configuration"
     },
     { 
@@ -891,7 +903,7 @@ const featureData = [
         linked: true,
         migration: "automatic",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q4 2025",
         description: "Usage-based billing for non-voice services including data, SMS, and digital services"
     },
 
@@ -905,7 +917,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q4 2025",
         description: "Advanced list view functionality with custom columns, sorting, and filtering options"
     },
     { 
@@ -917,7 +929,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Business process automation tools for workflow optimization and operational efficiency"
     },
     { 
@@ -929,7 +941,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Support for multiple POP3 email accounts across different business locations"
     },
 
@@ -943,7 +955,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Rev.io Model Context Protocol integration for enhanced AI and automation capabilities"
     },
     { 
@@ -955,7 +967,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Direct integrations with central monitoring stations for security and alarm management"
     },
     { 
@@ -967,7 +979,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Integration with Portal.io platform for enhanced customer portal capabilities"
     },
     { 
@@ -979,7 +991,7 @@ const featureData = [
         linked: false,
         migration: "manual",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Direct integration with D-Tools for system design and documentation management"
     },
     { 
@@ -991,7 +1003,7 @@ const featureData = [
         linked: false,
         migration: "not-applicable",
         portal: "cross",
-        status: "On Roadmap",
+        status: "Q1 2026",
         description: "Enhanced data import capabilities with modern file formats and validation tools"
     }
 ];

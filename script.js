@@ -70,10 +70,8 @@ function loadContent(contentId) {
 
 function showSalesContent(contentId) {
     // Hide main sections
-    document.getElementById('executiveSummary').style.display = 'none';
     document.querySelector('.filters-section').style.display = 'none';
     document.querySelector('.comparison-section').style.display = 'none';
-    document.querySelector('.critical-callout').style.display = 'none';
     
     // Get or create sales content area
     let salesContent = document.getElementById('salesContent');
@@ -347,6 +345,10 @@ function getStatusBadge(status, delayed) {
         badgeHtml = '<span class="status-badge in-dev"><i class="fas fa-tools"></i> In Development</span>';
     } else if (status === 'Coming 2026') {
         badgeHtml = '<span class="status-badge roadmap"><i class="fas fa-calendar-alt"></i> 2026 Roadmap</span>';
+    } else if (status === 'Q4 2025') {
+        badgeHtml = '<span class="status-badge q4-2025"><i class="fas fa-calendar"></i> Q4 2025</span>';
+    } else if (status === 'Q1 2026') {
+        badgeHtml = '<span class="status-badge q1-2026"><i class="fas fa-calendar-alt"></i> Q1 2026</span>';
     } else if (status === 'On Roadmap') {
         badgeHtml = '<span class="status-badge roadmap"><i class="fas fa-road"></i> On Roadmap</span>';
     } else if (status === 'Available') {
@@ -521,6 +523,10 @@ function getStatusIcon(status, featureStatus, columnName) {
             return '<i class="fas fa-rocket general-availability" title="General Availability"></i>';
         } else if (featureStatus === 'In Development' || featureStatus === 'Coming GA') {
             return '<i class="fas fa-tools in-dev" title="In Development"></i>';
+        } else if (featureStatus === 'Q4 2025') {
+            return '<i class="fas fa-calendar q4-2025" title="Q4 2025"></i>';
+        } else if (featureStatus === 'Q1 2026') {
+            return '<i class="fas fa-calendar-alt q1-2026" title="Q1 2026"></i>';
         } else if (featureStatus === 'On Roadmap') {
             return '<i class="fas fa-road roadmap" title="On Roadmap"></i>';
         } else if (featureStatus === 'Coming 2026') {
@@ -639,9 +645,9 @@ function showTigerpawMigrationValue() {
                 </div>
             </div>
         `;
-        // Insert after executive summary
-        const execSummary = document.getElementById('executiveSummary');
-        execSummary.parentNode.insertBefore(valueSection, execSummary.nextSibling);
+        // Insert at the top of main content
+        const mainContent = document.querySelector('.main-content');
+        mainContent.insertBefore(valueSection, mainContent.firstChild);
     }
     valueSection.style.display = 'block';
     valueSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -733,6 +739,16 @@ function setupEventListeners() {
                 case 'in-development':
                     // Show only features with status "In Development" or "Coming GA" (legacy)
                     filtered = features.filter(f => f.status === 'In Development' || f.status === 'Coming GA');
+                    renderTable(filtered, false);
+                    break;
+                case 'q4-2025':
+                    // Show only features with status "Q4 2025"
+                    filtered = features.filter(f => f.status === 'Q4 2025');
+                    renderTable(filtered, false);
+                    break;
+                case 'q1-2026':
+                    // Show only features with status "Q1 2026"
+                    filtered = features.filter(f => f.status === 'Q1 2026');
                     renderTable(filtered, false);
                     break;
                 case 'on-roadmap':
