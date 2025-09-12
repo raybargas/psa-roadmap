@@ -15,6 +15,18 @@
     --error: #EF4444;
 }
 
+/* Presentation Mode - Hide columns except Feature and Status */
+.comparison-table th:nth-child(2),
+.comparison-table th:nth-child(3),
+.comparison-table th:nth-child(4),
+.comparison-table th:nth-child(5),
+.comparison-table td:nth-child(2),
+.comparison-table td:nth-child(3),
+.comparison-table td:nth-child(4),
+.comparison-table td:nth-child(5) {
+    display: none;
+}
+
 * {
     margin: 0;
     padding: 0;
